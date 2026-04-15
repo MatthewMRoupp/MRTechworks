@@ -682,6 +682,43 @@ p {
   min-height: 100%;
 }
 
+.cert-grid {
+  align-items: start;
+}
+
+.cert-card {
+  gap: 0.8rem;
+}
+
+.cert-thumb {
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.cert-card-horizontal {
+  grid-template-columns: minmax(180px, 240px) 1fr;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cert-card-horizontal .cert-thumb {
+  height: 100%;
+  min-height: 200px;
+}
+
+.cert-content {
+  display: grid;
+  align-content: start;
+}
+
+.cert-grid-wide {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .reveal {
   animation: riseIn 620ms ease both;
 }
@@ -783,6 +820,15 @@ p {
   .process-grid,
   .contact-grid {
     grid-template-columns: 1fr;
+  }
+
+  .cert-card-horizontal,
+  .cert-grid-wide {
+    grid-template-columns: 1fr;
+  }
+
+  .cert-card-horizontal .cert-thumb {
+    min-height: 0;
   }
 
   .callout-banner,
