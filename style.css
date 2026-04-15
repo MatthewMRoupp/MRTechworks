@@ -719,6 +719,41 @@ p {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.cert-spotlight {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 1.5rem;
+  align-items: center;
+  padding: 1.5rem;
+}
+
+.cert-spotlight-media {
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+}
+
+.cert-spotlight-copy {
+  display: grid;
+  align-content: start;
+}
+
+.cert-thumb-wide {
+  aspect-ratio: auto;
+  max-height: 460px;
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.96);
+  padding: 0.5rem;
+}
+
+.cert-spotlight-badge {
+  width: min(220px, 100%);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: var(--shadow-soft);
+}
+
 .reveal {
   animation: riseIn 620ms ease both;
 }
@@ -822,6 +857,7 @@ p {
     grid-template-columns: 1fr;
   }
 
+  .cert-spotlight,
   .cert-card-horizontal,
   .cert-grid-wide {
     grid-template-columns: 1fr;
