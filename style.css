@@ -298,8 +298,8 @@ p {
 }
 
 .site-logo {
-  width: 54px;
-  height: 54px;
+  width: 100px;
+  height: 100px;
   display: grid;
   place-items: center;
   flex: 0 0 auto;
