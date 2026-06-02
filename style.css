@@ -184,12 +184,12 @@ p {
   max-width: 72ch;
 }
 
-/* Small uppercase labels above headings, like "Projects" or "Services". */
+/* Was Small uppercase labels above headings, like "Projects" or "Services". Changed my mind on the tiny title text */
 .eyebrow,
 .preview-kicker,
 .panel-label {
   margin: 0;
-  font-size: 0.82rem;
+  font-size: 1.00rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.14em;
