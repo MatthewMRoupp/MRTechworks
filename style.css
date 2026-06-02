@@ -491,7 +491,47 @@ p {
   display: grid;
   align-content: start;
 }
+/* Wanted to make the hoe page have the image in the background*/
+.hero-background {
+  min-height: 75vh;
+  background-image: url("../images/homeimage.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+}
 
+/* This dark layer makes the text easier to read */
+.hero-overlay {
+  width: 100%;
+  min-height: 75vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.82) 0%,
+    rgba(0, 0, 0, 0.62) 45%,
+    rgba(0, 0, 0, 0.2) 100%
+  );
+}
+
+.hero-content {
+  width: 100%;
+  padding: 5rem 1.5rem;
+}
+
+.hero-copy {
+  max-width: 650px;
+}
+
+.hero-copy .section-title {
+  margin-bottom: 1rem;
+}
+
+.hero-copy .lead {
+  max-width: 620px;
+}
 /* Featured card style. Adds extra emphasis and works with the "Featured" label below. */
 .card-featured {
   position: relative;
