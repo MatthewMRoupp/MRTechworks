@@ -491,10 +491,10 @@ p {
   display: grid;
   align-content: start;
 }
-/* Wanted to make the hoe page have the image in the background*/
+/* Homepage hero background image */
 .hero-background {
   min-height: 75vh;
-  background-image: url("../images/homeimage.png");
+  background-image: url("assets/images/homeimage.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -691,30 +691,6 @@ p {
 .project-link {
   margin-top: 1rem;
   margin-bottom: 0;
-}
-
-.hero-background {
-  min-height: 75vh;
-  background-image: url("assets/images/homepageimage.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-}
-
-/* This dark layer makes your text easier to read */
-.hero-overlay {
-  width: 100%;
-  min-height: 75vh;
-  display: flex;
-  align-items: center;
-  background: linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 0.82) 0%,
-    rgba(0, 0, 0, 0.62) 45%,
-    rgba(0, 0, 0, 0.2) 100%
-  );
 }
 
 .hero-content {
