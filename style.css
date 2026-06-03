@@ -1134,3 +1134,46 @@ p {
     grid-template-columns: 1fr;
   }
 }
+
+/* ===== Full article reader page =====
+   Controls the layout for article.html after someone clicks Read Article. */
+.article-page h1 {
+  margin-bottom: 1rem;
+}
+
+.article-page h2 {
+  margin-top: 2rem;
+}
+
+.article-page p {
+  color: var(--text-muted);
+}
+
+.article-hero-image {
+  width: 100%;
+  margin: 2rem 0;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-soft);
+}
+
+.article-body {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.article-references {
+  margin-top: 2.5rem;
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.article-references ul {
+  margin-bottom: 0;
+}
+
+.article-back-link {
+  margin-top: 2rem;
+}
