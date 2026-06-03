@@ -2,6 +2,15 @@ const articleSearch = document.getElementById("articleSearch");
 const articleResults = document.getElementById("articleResults");
 const articleCount = document.getElementById("articleCount");
 
+/* 
+============================================================
+Article Cards 
+============================================================
+Article cards are built from this list.
+The id connects each card to the full article in article-reader.js.
+Tags help the search box find matching articles.
+*/
+
 const articles = [
   {
     id: "home-wifi-basics",
