@@ -1,13 +1,20 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Read article ideas, explainers, and Q&amp;A topics from Matthew Roupp on technology, troubleshooting, and digital guidance." />
+
+  <meta
+    name="description"
+    content="Read article ideas, explainers, and Q&A topics from Matthew Roupp on technology, troubleshooting, and digital guidance."
+  />
+
   <title>MR Techworks | Articles</title>
+
   <link rel="icon" href="assets/images/favicon.ico" />
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
 
@@ -39,12 +46,16 @@
     <section class="page-hero">
       <div class="container split-hero">
         <div class="page-hero-copy reveal">
-          <h2 class="section-title">Articles</h2>
-          <p class="eyebrow">Other's Experiences for Your Assistance</p>
+          <h1 class="section-title">Articles</h1>
+
+          <p class="eyebrow">Others' Experiences for Your Assistance</p>
+
           <p class="lead">
-            This section is designed to become a growing library of practical experiences and information. We want to help break things down,
-            gather ecperiences, and help you become more confident in the ever growing tech world. There is a lot going on and we want to help 
-            keep you in the know and make sure that you see all sides of it too. 
+            This section is designed to become a growing library of practical experiences and information.
+            We want to help break things down, gather experiences, and help you become more confident in
+            the ever-growing tech world. There is a lot going on, and we want to help keep you in the know
+            while making sure you see all sides of it too.
+          </p>
         </div>
 
         <div class="image-frame reveal reveal-delay">
@@ -53,35 +64,26 @@
       </div>
     </section>
 
-    <section class="section">
-      <div class="container section-header">
-        <h2 class="eyebrow">Featured topics</h2>
+    <section class="section section-tight">
+      <div class="container article-library-controls">
+        <label for="articleSearch" class="search-label">Search the library</label>
+
+        <input
+          type="search"
+          id="articleSearch"
+          class="article-search"
+          placeholder="Search Wi-Fi, PC builds, troubleshooting, routers, storage..."
+        />
+
+        <p id="articleCount" class="text-muted article-count">
+          Loading articles...
+        </p>
       </div>
+    </section>
 
-      <div class="container card-grid card-grid-3">
-        <article class="card reveal">
-          <p class="preview-kicker">Idea 1</p>
-          <h3>How to troubleshoot slow Wi-Fi before buying new hardware</h3>
-          <p class="text-muted">
-            A practical explanation of where to start, what to test, and how to avoid spending money before you know the real issue.
-          </p>
-        </article>
-
-        <article class="card reveal reveal-delay">
-          <p class="preview-kicker">Idea 2</p>
-          <h3>What to think about before building a personal portfolio website</h3>
-          <p class="text-muted">
-            Structure, content, professionalism, and how to make a website support your goals instead of just filling space.
-          </p>
-        </article>
-
-        <article class="card reveal reveal-delay-2">
-          <p class="preview-kicker">Idea 3</p>
-          <h3>How to compare PC parts without getting buried in specs</h3>
-          <p class="text-muted">
-            The kind of article that helps people understand the important tradeoffs without feeling like they need to be experts first.
-          </p>
-        </article>
+    <section class="section">
+      <div class="container article-grid" id="articleResults">
+        <!-- JavaScript will place article cards here. -->
       </div>
     </section>
 
@@ -89,8 +91,11 @@
       <div class="container callout-banner reveal">
         <div>
           <h2>Looking for Other Answers?</h2>
-          <p class="text-muted">Check out the Q&apm;A section on our services page or ask us directly.</p>
+          <p class="text-muted">
+            Check out the Q&amp;A section on our services page or ask us directly.
+          </p>
         </div>
+
         <div class="button-group">
           <a class="btn btn-primary" href="services.html">See Support Topics</a>
           <a class="btn btn-secondary" href="contact.html">Contact Us</a>
@@ -113,6 +118,7 @@
 
       <div>
         <h2 class="footer-heading">Explore</h2>
+
         <div class="footer-links">
           <a href="index.html">Home</a>
           <a href="services.html">Services</a>
@@ -126,6 +132,7 @@
 
       <div>
         <h2 class="footer-heading">Connect</h2>
+
         <div class="footer-links">
           <a href="mailto:mmroupp@gmail.com">mmroupp@gmail.com</a>
           <a href="https://github.com/MatthewMRoupp" target="_blank" rel="noopener noreferrer">GitHub</a>
@@ -139,6 +146,7 @@
       <p>Built by Matthew Roupp. Updated 2026.</p>
     </div>
   </footer>
+
+  <script src="assets/js/articles.js"></script>
 </body>
 </html>
-
