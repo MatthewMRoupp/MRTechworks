@@ -693,6 +693,46 @@ p {
   margin-bottom: 0;
 }
 
+.hero-background {
+  min-height: 75vh;
+  background-image: url("assets/images/homepageimage.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+}
+
+/* This dark layer makes your text easier to read */
+.hero-overlay {
+  width: 100%;
+  min-height: 75vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.82) 0%,
+    rgba(0, 0, 0, 0.62) 45%,
+    rgba(0, 0, 0, 0.2) 100%
+  );
+}
+
+.hero-content {
+  width: 100%;
+  padding: 5rem 1.5rem;
+}
+
+.hero-copy {
+  max-width: 650px;
+}
+
+.hero-copy .section-title {
+  margin-bottom: 1rem;
+}
+
+.hero-copy .lead {
+  max-width: 620px;
+}
 /* ===== Footer =====
    Controls the bottom area of the site, including footer columns and links. */
 .footer-grid {
