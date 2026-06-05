@@ -1,0 +1,86 @@
+<!-- demos/payroll-demo/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Payroll Demo</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 1rem;
+      background: #f8fafc;
+      color: #111827;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    label {
+      display: block;
+      margin-top: 0.8rem;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0.6rem;
+      margin-top: 0.25rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 1rem;
+      padding: 0.7rem;
+      border: none;
+      border-radius: 8px;
+      background: #0f766e;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .result {
+      margin-top: 1rem;
+      padding: 0.8rem;
+      background: white;
+      border-radius: 10px;
+      border: 1px solid #e5e7eb;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Payroll Demo</h2>
+
+  <label for="hours">Hours Worked</label>
+  <input id="hours" type="number" value="40">
+
+  <label for="rate">Hourly Rate</label>
+  <input id="rate" type="number" value="18.50">
+
+  <button onclick="calculatePay()">Calculate Pay</button>
+
+  <div class="result" id="result">
+    Enter values and calculate gross pay.
+  </div>
+
+  <script>
+    function calculatePay() {
+      const hours = Number(document.getElementById("hours").value);
+      const rate = Number(document.getElementById("rate").value);
+
+      const grossPay = hours * rate;
+
+      document.getElementById("result").innerHTML = `
+        <strong>Gross Pay:</strong> $${grossPay.toFixed(2)}
+      `;
+    }
+  </script>
+</body>
+</html>
