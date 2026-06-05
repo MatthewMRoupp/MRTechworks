@@ -176,13 +176,13 @@
         
           <div class="project-links">
             <a href="demos/payroll-demo/index.html" target="_blank">Open Demo</a>
-            <button class="btn btn-secondary" type="button" onclick="openNotes('payrollNotes')">View Notes</button>
+            <a type="button" id="openPayrollNotes">View Notes</a>
           </div>
         </article>
 
-        <dialog class="notes-modal" id="payrollNotes">
+        <div class="notes-modal" id="payrollNotes">
           <div class="notes-modal-content">
-            <button class="notes-close" onclick="closeNotes('payrollNotes')">
+            <button class="notes-close" type="button" id="closePayrollNotes">
               ×
             </button>
         
@@ -209,7 +209,8 @@
               This is a class and portfolio demo, not an official payroll or tax tool.
             </p>
           </div>
-        </dialog>
+        </div>
+        
           
         <article class="card reveal reveal-delay-3">
           <p class="preview-kicker">Research</p>
@@ -296,6 +297,33 @@
       <p>Built by Matthew Roupp. Updated 2026.</p>
     </div>
   </footer>
+
+  <script>
+    const openPayrollNotes = document.getElementById("openPayrollNotes");
+    const closePayrollNotes = document.getElementById("closePayrollNotes");
+    const payrollNotes = document.getElementById("payrollNotes");
+  
+    openPayrollNotes.addEventListener("click", function () {
+      payrollNotes.classList.add("open");
+    });
+  
+    closePayrollNotes.addEventListener("click", function () {
+      payrollNotes.classList.remove("open");
+    });
+  
+    payrollNotes.addEventListener("click", function (event) {
+      if (event.target === payrollNotes) {
+        payrollNotes.classList.remove("open");
+      }
+    });
+  
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
+        payrollNotes.classList.remove("open");
+      }
+    });
+  </script>
+  
 </body>
 </html>
 
