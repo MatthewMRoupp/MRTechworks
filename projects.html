@@ -157,9 +157,8 @@
 
         <article class="card reveal reveal-delay-3">
           <p class="preview-kicker">Payroll Calculator</p>
-          <h3>A small demo based on my C++ payroll project. It calculates gross pay
-              using hours worked and hourly rate.</h3>
-          <p class="text-muted">This was worked on in my C++ and OOP class at SUNY Empire.</p>
+          <h3>Demo Project</h3>
+          <p class="text-muted">Inspired by my C++ Classwork.</p>
           <div class="demo-window">
             <div class="demo-window-bar">
               <span></span>
@@ -177,9 +176,40 @@
         
           <div class="project-links">
             <a href="demos/payroll-demo/index.html" target="_blank">Open Demo</a>
-            <a href="#">View Notes</a>
+            <button class="notes-button" onclick="openNotes('payrollNotes')">View Notes</button>
           </div>
         </article>
+
+        <dialog class="notes-modal" id="payrollNotes">
+          <div class="notes-modal-content">
+            <button class="notes-close" onclick="closeNotes('payrollNotes')">
+              ×
+            </button>
+        
+            <h3>Payroll Calculator Notes</h3>
+        
+            <p>
+              This demo is based on my C++ payroll coursework. The original idea started
+              with basic input, calculations, and output for hours worked and hourly pay.
+            </p>
+        
+            <p>
+              This web version expands the idea by adding overtime, filing status,
+              estimated tax deductions, and a step-by-step math breakdown.
+            </p>
+        
+            <ul>
+              <li>Regular pay is calculated from hours up to 40.</li>
+              <li>Overtime is calculated at 1.5 times the hourly rate.</li>
+              <li>Taxes are estimated using simplified demo logic.</li>
+              <li>Net pay is calculated after deductions and estimated taxes.</li>
+            </ul>
+        
+            <p class="notes-small">
+              This is a class and portfolio demo, not an official payroll or tax tool.
+            </p>
+          </div>
+        </dialog>
           
         <article class="card reveal reveal-delay-3">
           <p class="preview-kicker">Research</p>
