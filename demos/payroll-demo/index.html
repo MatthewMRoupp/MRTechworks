@@ -7,50 +7,158 @@
   <title>Payroll Demo</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: Arial, sans-serif;
       padding: 1rem;
+      margin: 0;
       background: #f8fafc;
       color: #111827;
     }
 
     h2 {
       margin-top: 0;
+      margin-bottom: 0.35rem;
+    }
+
+    .demo-note {
+      margin-top: 0;
+      color: #475569;
+      font-size: 0.92rem;
+      line-height: 1.4;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.8rem;
+      margin-top: 1rem;
     }
 
     label {
       display: block;
-      margin-top: 0.8rem;
       font-weight: bold;
+      font-size: 0.9rem;
     }
 
-    input {
+    input,
+    select {
       width: 100%;
       box-sizing: border-box;
-      padding: 0.6rem;
+      padding: 0.65rem;
       margin-top: 0.25rem;
       border: 1px solid #cbd5e1;
       border-radius: 8px;
+      font-size: 1rem;
+      background: white;
     }
 
     button {
       width: 100%;
       margin-top: 1rem;
-      padding: 0.7rem;
+      padding: 0.75rem;
       border: none;
       border-radius: 8px;
       background: #0f766e;
       color: white;
       font-weight: bold;
       cursor: pointer;
+      font-size: 1rem;
+    }
+
+    button:hover {
+      background: #115e59;
     }
 
     .result {
       margin-top: 1rem;
-      padding: 0.8rem;
+      padding: 0.9rem;
       background: white;
       border-radius: 10px;
       border: 1px solid #e5e7eb;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+
+    .summary-card {
+      padding: 0.75rem;
+      border-radius: 10px;
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+    }
+
+    .summary-card span {
+      display: block;
+      color: #64748b;
+      font-size: 0.8rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .summary-card strong {
+      font-size: 1.05rem;
+    }
+
+    .net-card {
+      background: #ecfdf5;
+      border-color: #99f6e4;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+
+    th,
+    td {
+      padding: 0.55rem;
+      border-bottom: 1px solid #e5e7eb;
+      text-align: left;
+    }
+
+    th {
+      background: #f1f5f9;
+    }
+
+    td:last-child,
+    th:last-child {
+      text-align: right;
+    }
+
+    .math-box {
+      margin-top: 1rem;
+      padding: 0.85rem;
+      border-radius: 10px;
+      background: #f8fafc;
+      border: 1px dashed #cbd5e1;
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    .warning {
+      margin-top: 1rem;
+      padding: 0.75rem;
+      border-radius: 10px;
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      color: #92400e;
+      font-size: 0.85rem;
+      line-height: 1.4;
+    }
+
+    @media (min-width: 620px) {
+      .form-grid {
+        grid-template-columns: 1fr 1fr;
+      }
     }
   </style>
 </head>
@@ -58,27 +166,304 @@
 <body>
   <h2>Payroll Demo</h2>
 
-  <label for="hours">Hours Worked</label>
-  <input id="hours" type="number" value="40">
+  <p class="demo-note">
+    A simple payroll calculator based on class-style programming logic.
+    It estimates gross pay, deductions, taxes, and net pay.
+  </p>
 
-  <label for="rate">Hourly Rate</label>
-  <input id="rate" type="number" value="18.50">
+  <div class="form-grid">
+    <label for="hours">
+      Hours Worked
+      <input id="hours" type="number" value="40" min="0" step="0.01">
+    </label>
+
+    <label for="rate">
+      Hourly Rate
+      <input id="rate" type="number" value="18.50" min="0" step="0.01">
+    </label>
+
+    <label for="filingStatus">
+      Filing Status
+      <select id="filingStatus">
+        <option value="single">Single</option>
+        <option value="married">Married</option>
+        <option value="head">Head of Household</option>
+      </select>
+    </label>
+
+    <label for="payFrequency">
+      Pay Frequency
+      <select id="payFrequency">
+        <option value="52">Weekly</option>
+        <option value="26" selected>Biweekly</option>
+        <option value="24">Twice a Month</option>
+        <option value="12">Monthly</option>
+      </select>
+    </label>
+
+    <label for="preTax">
+      Pre-Tax Deductions
+      <input id="preTax" type="number" value="0" min="0" step="0.01">
+    </label>
+
+    <label for="stateRate">
+      State/Local Tax Rate %
+      <input id="stateRate" type="number" value="4" min="0" step="0.01">
+    </label>
+  </div>
 
   <button onclick="calculatePay()">Calculate Pay</button>
 
   <div class="result" id="result">
-    Enter values and calculate gross pay.
+    Enter values and calculate pay.
   </div>
 
   <script>
+    function formatMoney(amount) {
+      return amount.toLocaleString("en-US", {
+        style: "currency",
+        currency: "USD"
+      });
+    }
+
+    function formatPercent(amount) {
+      return amount.toFixed(2) + "%";
+    }
+
+    function getTaxSettings(status) {
+      const taxData = {
+        single: {
+          label: "Single",
+          demoDeduction: 14600,
+          brackets: [
+            { upTo: 11600, rate: 0.10 },
+            { upTo: 47150, rate: 0.12 },
+            { upTo: 100525, rate: 0.22 },
+            { upTo: Infinity, rate: 0.24 }
+          ]
+        },
+
+        married: {
+          label: "Married",
+          demoDeduction: 29200,
+          brackets: [
+            { upTo: 23200, rate: 0.10 },
+            { upTo: 94300, rate: 0.12 },
+            { upTo: 201050, rate: 0.22 },
+            { upTo: Infinity, rate: 0.24 }
+          ]
+        },
+
+        head: {
+          label: "Head of Household",
+          demoDeduction: 21900,
+          brackets: [
+            { upTo: 16550, rate: 0.10 },
+            { upTo: 63100, rate: 0.12 },
+            { upTo: 100500, rate: 0.22 },
+            { upTo: Infinity, rate: 0.24 }
+          ]
+        }
+      };
+
+      return taxData[status];
+    }
+
+    function calculateProgressiveTax(income, brackets) {
+      let tax = 0;
+      let previousLimit = 0;
+
+      for (const bracket of brackets) {
+        if (income > previousLimit) {
+          const taxableInThisBracket = Math.min(income, bracket.upTo) - previousLimit;
+          tax += taxableInThisBracket * bracket.rate;
+          previousLimit = bracket.upTo;
+        }
+      }
+
+      return tax;
+    }
+
     function calculatePay() {
       const hours = Number(document.getElementById("hours").value);
       const rate = Number(document.getElementById("rate").value);
+      const filingStatus = document.getElementById("filingStatus").value;
+      const periodsPerYear = Number(document.getElementById("payFrequency").value);
+      const preTax = Number(document.getElementById("preTax").value);
+      const stateRate = Number(document.getElementById("stateRate").value);
 
-      const grossPay = hours * rate;
+      const resultBox = document.getElementById("result");
 
-      document.getElementById("result").innerHTML = `
-        <strong>Gross Pay:</strong> $${grossPay.toFixed(2)}
+      if (
+        Number.isNaN(hours) ||
+        Number.isNaN(rate) ||
+        Number.isNaN(preTax) ||
+        Number.isNaN(stateRate) ||
+        hours < 0 ||
+        rate < 0 ||
+        preTax < 0 ||
+        stateRate < 0
+      ) {
+        resultBox.innerHTML = `
+          <strong>Please check your entries.</strong>
+          <p>Hours, rate, deductions, and tax rates cannot be negative.</p>
+        `;
+        return;
+      }
+
+      const regularHours = Math.min(hours, 40);
+      const overtimeHours = Math.max(hours - 40, 0);
+
+      const regularPay = regularHours * rate;
+      const overtimePay = overtimeHours * rate * 1.5;
+      const grossPay = regularPay + overtimePay;
+
+      const taxablePay = Math.max(grossPay - preTax, 0);
+
+      const taxSettings = getTaxSettings(filingStatus);
+
+      const annualTaxableBeforeDeduction = taxablePay * periodsPerYear;
+      const annualTaxableAfterDeduction = Math.max(
+        annualTaxableBeforeDeduction - taxSettings.demoDeduction,
+        0
+      );
+
+      const estimatedFederalAnnualTax = calculateProgressiveTax(
+        annualTaxableAfterDeduction,
+        taxSettings.brackets
+      );
+
+      const federalTaxThisPaycheck = estimatedFederalAnnualTax / periodsPerYear;
+
+      const socialSecurityTax = grossPay * 0.062;
+      const medicareTax = grossPay * 0.0145;
+      const stateTax = taxablePay * (stateRate / 100);
+
+      const totalTaxes =
+        federalTaxThisPaycheck +
+        socialSecurityTax +
+        medicareTax +
+        stateTax;
+
+      const totalDeductions = preTax + totalTaxes;
+      const netPay = grossPay - totalDeductions;
+
+      const effectiveTaxRate = grossPay > 0 ? (totalTaxes / grossPay) * 100 : 0;
+
+      resultBox.innerHTML = `
+        <strong>Payroll Results</strong>
+
+        <div class="summary-grid">
+          <div class="summary-card">
+            <span>Gross Pay</span>
+            <strong>${formatMoney(grossPay)}</strong>
+          </div>
+
+          <div class="summary-card net-card">
+            <span>Estimated Net Pay</span>
+            <strong>${formatMoney(netPay)}</strong>
+          </div>
+
+          <div class="summary-card">
+            <span>Total Taxes</span>
+            <strong>${formatMoney(totalTaxes)}</strong>
+          </div>
+
+          <div class="summary-card">
+            <span>Effective Tax Rate</span>
+            <strong>${formatPercent(effectiveTaxRate)}</strong>
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Regular Pay</td>
+              <td>${formatMoney(regularPay)}</td>
+            </tr>
+
+            <tr>
+              <td>Overtime Pay</td>
+              <td>${formatMoney(overtimePay)}</td>
+            </tr>
+
+            <tr>
+              <td>Gross Pay</td>
+              <td>${formatMoney(grossPay)}</td>
+            </tr>
+
+            <tr>
+              <td>Pre-Tax Deductions</td>
+              <td>-${formatMoney(preTax)}</td>
+            </tr>
+
+            <tr>
+              <td>Taxable Pay This Period</td>
+              <td>${formatMoney(taxablePay)}</td>
+            </tr>
+
+            <tr>
+              <td>Estimated Federal Tax</td>
+              <td>-${formatMoney(federalTaxThisPaycheck)}</td>
+            </tr>
+
+            <tr>
+              <td>Social Security Tax</td>
+              <td>-${formatMoney(socialSecurityTax)}</td>
+            </tr>
+
+            <tr>
+              <td>Medicare Tax</td>
+              <td>-${formatMoney(medicareTax)}</td>
+            </tr>
+
+            <tr>
+              <td>State/Local Tax</td>
+              <td>-${formatMoney(stateTax)}</td>
+            </tr>
+
+            <tr>
+              <th>Estimated Net Pay</th>
+              <th>${formatMoney(netPay)}</th>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="math-box">
+          <strong>Behind the scenes math:</strong><br>
+          Regular pay = ${regularHours.toFixed(2)} hours × ${formatMoney(rate)} =
+          ${formatMoney(regularPay)}<br>
+
+          Overtime pay = ${overtimeHours.toFixed(2)} hours × ${formatMoney(rate)}
+          × 1.5 = ${formatMoney(overtimePay)}<br>
+
+          Gross pay = regular pay + overtime pay =
+          ${formatMoney(grossPay)}<br>
+
+          Taxable pay = gross pay - pre-tax deductions =
+          ${formatMoney(taxablePay)}<br>
+
+          Annualized taxable pay = ${formatMoney(taxablePay)} × ${periodsPerYear}
+          pay periods = ${formatMoney(annualTaxableBeforeDeduction)}<br>
+
+          Demo filing status = ${taxSettings.label}<br>
+          Demo standard deduction = ${formatMoney(taxSettings.demoDeduction)}<br>
+
+          Estimated annual taxable income after deduction =
+          ${formatMoney(annualTaxableAfterDeduction)}
+        </div>
+
+        <div class="warning">
+          This is a portfolio/class demo. It uses simplified tax logic and should not be used
+          as official payroll, tax, or financial advice.
+        </div>
       `;
     }
   </script>
