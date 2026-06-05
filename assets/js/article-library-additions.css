@@ -1,0 +1,157 @@
+/*
+  MR Techworks Article Library Additions
+  --------------------------------------
+  Paste near your article/library CSS section.
+*/
+
+.article-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.article-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1.25rem;
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
+}
+
+.article-card-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.article-card-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding: 1.25rem;
+}
+
+.article-card-content h3 {
+  margin: 0;
+}
+
+.article-card-content p {
+  margin: 0;
+}
+
+.article-card-meta,
+.article-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+}
+
+.article-card-meta span,
+.article-meta-row span {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  padding: 0.25rem 0.65rem;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.article-card-link {
+  margin-top: auto;
+}
+
+.article-card-empty {
+  padding: 1.5rem;
+}
+
+.article-tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.article-tag {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.25rem 0.65rem;
+  background: rgba(0, 191, 166, 0.12);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.article-layout {
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.article-hero-image {
+  width: 100%;
+  max-height: 420px;
+  margin: 1.5rem 0;
+  border-radius: 1.25rem;
+  object-fit: cover;
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.22);
+}
+
+.article-body {
+  display: grid;
+  gap: 1.75rem;
+}
+
+.article-section h2,
+.article-callout h2,
+.article-checklist-card h2,
+.article-references h2 {
+  margin-bottom: 0.65rem;
+}
+
+.article-section p {
+  line-height: 1.8;
+}
+
+.article-callout,
+.article-checklist-card,
+.article-references {
+  margin: 1.5rem 0;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1.25rem;
+  padding: 1.25rem;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.article-check-list,
+.article-list {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.article-check-list li,
+.article-list li {
+  margin: 0.45rem 0;
+  line-height: 1.6;
+}
+
+.article-references ul {
+  margin-bottom: 0;
+}
+
+.article-back-link {
+  margin-top: 2rem;
+}
+
+@media (max-width: 700px) {
+  .article-card-image {
+    height: 150px;
+  }
+
+  .article-layout {
+    max-width: 100%;
+  }
+}
