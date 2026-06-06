@@ -143,7 +143,7 @@ function renderArticle(article) {
 
       ${renderTags(article.tags)}
 
-      <img src="${escapeHTML(article.image)}" alt="${escapeHTML(article.title)}" class="article-hero-image" />
+      <img src="${escapeHTML(article.image)}" alt="${escapeHTML(article.imageAlt || article.title)}" class="article-hero-image" />
 
       ${renderKeyTakeaways(article)}
 
