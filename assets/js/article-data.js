@@ -856,3 +856,92 @@ window.MRTECHWORKS_ARTICLES = [
     ]
   }
 ];
+
+
+/*
+  Article image updates
+  ---------------------
+  Paste this at the very bottom of assets/js/article-data.js,
+  after the window.MRTECHWORKS_ARTICLES = [ ... ]; section.
+*/
+
+const articleImageUpdates = {
+  "home-wifi-basics": {
+    image: "assets/images/wifi-routers.jpg",
+    imageAlt: "Home Wi-Fi routers and networking equipment on a desk"
+  },
+
+  "internet-speed-vs-wifi-speed": {
+    image: "assets/images/ookla-internet-speed-test.png",
+    imageAlt: "Internet speed test results displayed on a screen"
+  },
+
+  "home-network-security-checklist": {
+    image: "assets/images/network-security-lock.jpg",
+    imageAlt: "Network security lock graphic representing protected home Wi-Fi"
+  },
+
+  "mesh-vs-extenders-vs-ethernet": {
+    image: "assets/images/mesh-network-systems.webp",
+    imageAlt: "Mesh Wi-Fi system devices arranged for home network coverage"
+  },
+
+  "password-managers-and-mfa": {
+    image: "assets/images/password-security.jpg",
+    imageAlt: "Password security graphic representing safer account protection"
+  },
+
+  "phishing-and-tech-support-scams": {
+    image: "assets/images/phishing-attack.jpg",
+    imageAlt: "Phishing attack warning shown on a computer screen"
+  },
+
+  "backup-basics-3-2-1": {
+    image: "assets/images/external-storage-drives.webp",
+    imageAlt: "External storage drives used for computer backups"
+  },
+
+  "choosing-a-computer": {
+    image: "assets/images/laptop.jpg",
+    imageAlt: "Laptop computer used for school, work, and everyday computing"
+  },
+
+  "pc-build-vs-prebuilt": {
+    image: "assets/images/gaming-pc-build-parts.jpg",
+    imageAlt: "Computer parts arranged for a custom gaming PC build"
+  },
+
+  "basic-computer-maintenance": {
+    image: "assets/images/cleaning-desktop-pc-dust.avif",
+    imageAlt: "Desktop computer being cleaned to remove dust buildup"
+  },
+
+  "smart-home-device-safety": {
+    image: "assets/images/smart-home-devices.jpg",
+    imageAlt: "Smart home devices connected in a modern home"
+  },
+
+  "repair-upgrade-or-replace": {
+    image: "assets/images/desktop-upgrade-repair.jpg",
+    imageAlt: "Desktop computer opened for repair or hardware upgrade"
+  },
+
+  "what-to-do-before-tech-support": {
+    image: "assets/images/showing-someone-support-in-person.jpg",
+    imageAlt: "In-person technology support showing someone how to solve a computer issue"
+  }
+};
+
+window.MRTECHWORKS_ARTICLES = window.MRTECHWORKS_ARTICLES.map(article => {
+  const imageUpdate = articleImageUpdates[article.id];
+
+  if (!imageUpdate) {
+    return article;
+  }
+
+  return {
+    ...article,
+    image: imageUpdate.image,
+    imageAlt: imageUpdate.imageAlt
+  };
+});
