@@ -69,7 +69,7 @@ function renderArticleCards(searchTerm = "") {
 
       return `
         <article class="article-card reveal">
-          <img src="${escapeHTML(article.image)}" alt="${escapeHTML(article.title)}" class="article-card-image" />
+          <img src="${escapeHTML(article.image)}" alt="${escapeHTML(article.imageAlt || article.title)}" class="article-hero-image" />
 
           <div class="article-card-content">
             <p class="eyebrow">${escapeHTML(article.category)}</p>
