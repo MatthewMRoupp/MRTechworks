@@ -4,15 +4,34 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>Technology Articles & Guides | MR Techworks</title>
+
   <meta
     name="description"
-    content="Read article ideas, explainers, and Q&A topics from Matthew Roupp on technology, troubleshooting, and digital guidance."
+    content="Read practical MR Techworks articles, explainers, and Q&A topics about technology, troubleshooting, computers, networking, and digital guidance."
   />
 
-  <title>MR Techworks | Articles</title>
+  <link rel="canonical" href="https://mrtechworks.com/articles/" />
 
-  <link rel="icon" href="assets/images/favicon.ico" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="/assets/images/favicon.ico" />
+  <link rel="stylesheet" href="/style.css" />
+
+  <!-- Social sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Technology Articles & Guides | MR Techworks" />
+  <meta
+    property="og:description"
+    content="Practical articles, explainers, and technology guidance covering troubleshooting, computers, networking, and more."
+  />
+  <meta property="og:url" content="https://mrtechworks.com/articles/" />
+  <meta property="og:site_name" content="MR Techworks" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Technology Articles & Guides | MR Techworks" />
+  <meta
+    name="twitter:description"
+    content="Practical articles, explainers, and technology guidance covering troubleshooting, computers, networking, and more."
+  />
 </head>
 
 <body>
@@ -20,8 +39,9 @@
 
   <header class="site-header">
     <div class="container header-inner">
-      <a class="site-brand" href="index.html">
+      <a class="site-brand" href="/" aria-label="MR Techworks home">
         <span class="site-logo">MR</span>
+
         <span class="site-brand-text">
           <span class="site-brand-name">MR Techworks</span>
           <span class="site-brand-tag">Portfolio, support, and practical tech</span>
@@ -30,13 +50,13 @@
 
       <nav class="site-nav" aria-label="Primary">
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="articles.html" aria-current="page">Articles</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="certifications.html">Certifications</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/services/">Services</a></li>
+          <li><a href="/articles/" aria-current="page">Articles</a></li>
+          <li><a href="/projects/">Projects</a></li>
+          <li><a href="/certifications/">Certifications</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
         </ul>
       </nav>
     </div>
@@ -59,30 +79,44 @@
         </div>
 
         <div class="image-frame reveal reveal-delay">
-          <img src="assets/images/articlesimage.png" alt="Abstract technology image representing articles" />
+          <img
+            src="/assets/images/articlesimage.png"
+            alt="Abstract technology image representing MR Techworks articles"
+          />
         </div>
       </div>
     </section>
 
     <section class="section section-tight">
       <div class="container article-library-controls">
-        <label for="articleSearch" class="search-label">Search the library</label>
+        <label for="articleSearch" class="search-label">
+          Search the library
+        </label>
 
         <input
           type="search"
           id="articleSearch"
           class="article-search"
           placeholder="Search Wi-Fi, PC builds, troubleshooting, routers, storage..."
+          autocomplete="off"
         />
 
-        <p id="articleCount" class="text-muted article-count">
+        <p
+          id="articleCount"
+          class="text-muted article-count"
+          aria-live="polite"
+        >
           Loading articles...
         </p>
       </div>
     </section>
 
     <section class="section">
-      <div class="container article-grid" id="articleResults">
+      <div
+        class="container article-grid"
+        id="articleResults"
+        aria-live="polite"
+      >
         <!-- JavaScript will place article cards here. -->
       </div>
     </section>
@@ -91,14 +125,15 @@
       <div class="container callout-banner reveal">
         <div>
           <h2>Looking for Other Answers?</h2>
+
           <p class="text-muted">
             Check out the Q&amp;A section on our services page or ask us directly.
           </p>
         </div>
 
         <div class="button-group">
-          <a class="btn btn-primary" href="services.html">See Support Topics</a>
-          <a class="btn btn-secondary" href="contact.html">Contact Us</a>
+          <a class="btn btn-primary" href="/services/">See Support Topics</a>
+          <a class="btn btn-secondary" href="/contact/">Contact Us</a>
         </div>
       </div>
     </section>
@@ -107,8 +142,13 @@
   <footer class="site-footer">
     <div class="container footer-grid">
       <div>
-        <a class="site-brand footer-brand" href="index.html">
+        <a
+          class="site-brand footer-brand"
+          href="/"
+          aria-label="MR Techworks home"
+        >
           <span class="site-logo">MR</span>
+
           <span class="site-brand-text">
             <span class="site-brand-name">MR Techworks</span>
             <span class="site-brand-tag">Built for opportunity, support, and growth</span>
@@ -120,13 +160,13 @@
         <h2 class="footer-heading">Explore</h2>
 
         <div class="footer-links">
-          <a href="index.html">Home</a>
-          <a href="services.html">Services</a>
-          <a href="articles.html">Articles</a>
-          <a href="projects.html">Projects</a>
-          <a href="certifications.html">Certifications</a>
-          <a href="about.html">About</a>
-          <a href="contact.html">Contact</a>
+          <a href="/">Home</a>
+          <a href="/services/">Services</a>
+          <a href="/articles/">Articles</a>
+          <a href="/projects/">Projects</a>
+          <a href="/certifications/">Certifications</a>
+          <a href="/about/">About</a>
+          <a href="/contact/">Contact</a>
         </div>
       </div>
 
@@ -134,9 +174,25 @@
         <h2 class="footer-heading">Connect</h2>
 
         <div class="footer-links">
-          <a href="mailto:mmroupp@gmail.com">mmroupp@gmail.com</a>
-          <a href="https://github.com/MatthewMRoupp" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a href="https://www.linkedin.com/in/matthew-roupp-abb33a304/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="mailto:mmroupp@gmail.com">
+            mmroupp@gmail.com
+          </a>
+
+          <a
+            href="https://github.com/MatthewMRoupp"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/matthew-roupp-abb33a304/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn
+          </a>
         </div>
       </div>
     </div>
@@ -146,7 +202,7 @@
     </div>
   </footer>
 
-  <script src="assets/js/article-data.js"></script>
-  <script src="assets/js/articles.js"></script>
+  <script src="/assets/js/article-data.js"></script>
+  <script src="/assets/js/articles.js"></script>
 </body>
 </html>
