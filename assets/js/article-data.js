@@ -945,3 +945,20 @@ window.MRTECHWORKS_ARTICLES = window.MRTECHWORKS_ARTICLES.map(article => {
     imageAlt: imageUpdate.imageAlt
   };
 });
+
+/*
+  Normalize article image paths
+  -----------------------------
+  Keeps article images working from clean URLs such as
+  /articles/ and /articles/read/.
+*/
+
+window.MRTECHWORKS_ARTICLES = window.MRTECHWORKS_ARTICLES.map(article => {
+  return {
+    ...article,
+    image:
+      article.image && !article.image.startsWith("/")
+        ? `/${article.image}`
+        : article.image
+  };
+});
