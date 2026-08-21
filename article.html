@@ -4,15 +4,31 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>Article | MR Techworks</title>
+
   <meta
     name="description"
     content="Read helpful MR Techworks articles about technology, troubleshooting, computers, networking, and practical tech support."
   />
 
-  <title>Article | MR Techworks</title>
+  <link rel="icon" href="/assets/images/favicon.ico" />
+  <link rel="stylesheet" href="/style.css" />
 
-  <link rel="icon" href="assets/images/favicon.ico" />
-  <link rel="stylesheet" href="style.css" />
+  <!-- Social sharing -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Article | MR Techworks" />
+  <meta
+    property="og:description"
+    content="Helpful MR Techworks articles covering technology, troubleshooting, computers, networking, and practical tech support."
+  />
+  <meta property="og:site_name" content="MR Techworks" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Article | MR Techworks" />
+  <meta
+    name="twitter:description"
+    content="Helpful MR Techworks articles covering technology, troubleshooting, computers, networking, and practical tech support."
+  />
 </head>
 
 <body>
@@ -20,8 +36,9 @@
 
   <header class="site-header">
     <div class="container header-inner">
-      <a class="site-brand" href="index.html">
+      <a class="site-brand" href="/" aria-label="MR Techworks home">
         <span class="site-logo">MR</span>
+
         <span class="site-brand-text">
           <span class="site-brand-name">MR Techworks</span>
           <span class="site-brand-tag">Portfolio, support, and practical tech</span>
@@ -30,13 +47,13 @@
 
       <nav class="site-nav" aria-label="Primary">
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="articles.html" aria-current="page">Articles</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="certifications.html">Certifications</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/services/">Services</a></li>
+          <li><a href="/articles/" aria-current="page">Articles</a></li>
+          <li><a href="/projects/">Projects</a></li>
+          <li><a href="/certifications/">Certifications</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
         </ul>
       </nav>
     </div>
@@ -44,7 +61,12 @@
 
   <main id="main-content">
     <article class="section article-page">
-      <div class="container narrow" id="articleReader">
+      <div
+        class="container narrow"
+        id="articleReader"
+        aria-live="polite"
+        aria-busy="true"
+      >
         <p class="text-muted">Loading article...</p>
       </div>
     </article>
@@ -53,8 +75,9 @@
   <footer class="site-footer">
     <div class="container footer-grid">
       <div>
-        <a class="site-brand footer-brand" href="index.html">
+        <a class="site-brand footer-brand" href="/" aria-label="MR Techworks home">
           <span class="site-logo">MR</span>
+
           <span class="site-brand-text">
             <span class="site-brand-name">MR Techworks</span>
             <span class="site-brand-tag">Built for opportunity, support, and growth</span>
@@ -66,13 +89,13 @@
         <h2 class="footer-heading">Explore</h2>
 
         <div class="footer-links">
-          <a href="index.html">Home</a>
-          <a href="services.html">Services</a>
-          <a href="articles.html">Articles</a>
-          <a href="projects.html">Projects</a>
-          <a href="certifications.html">Certifications</a>
-          <a href="about.html">About</a>
-          <a href="contact.html">Contact</a>
+          <a href="/">Home</a>
+          <a href="/services/">Services</a>
+          <a href="/articles/">Articles</a>
+          <a href="/projects/">Projects</a>
+          <a href="/certifications/">Certifications</a>
+          <a href="/about/">About</a>
+          <a href="/contact/">Contact</a>
         </div>
       </div>
 
@@ -81,9 +104,30 @@
 
         <div class="footer-links">
           <a href="mailto:mmroupp@gmail.com">mmroupp@gmail.com</a>
-          <a href="https://github.com/MatthewMRoupp" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a href="https://www.linkedin.com/in/matthew-roupp-abb33a304/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a href="assets/documents/Resume%20IT%20v02.24.2026.pdf" target="_blank" rel="noopener noreferrer">Resume PDF</a>
+
+          <a
+            href="https://github.com/MatthewMRoupp"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/matthew-roupp-abb33a304/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn
+          </a>
+
+          <a
+            href="/assets/documents/Resume%20IT%20v02.24.2026.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Resume PDF
+          </a>
         </div>
       </div>
     </div>
@@ -93,7 +137,7 @@
     </div>
   </footer>
 
-  <script src="assets/js/article-data.js"></script>
-  <script src="assets/js/article-reader.js"></script>
+  <script src="/assets/js/article-data.js"></script>
+  <script src="/assets/js/article-reader.js"></script>
 </body>
 </html>
