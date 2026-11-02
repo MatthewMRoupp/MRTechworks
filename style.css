@@ -494,7 +494,7 @@ p {
 /* Homepage hero background image */
 .hero-background {
   min-height: 75vh;
-  background-image: url("/assets/images/homeimage.png");
+  background-image: url("/assets/images/homeimage.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1345,3 +1345,24 @@ button.text-link:focus-visible {
   object-fit: cover;
   display: block;
 }
+
+/* Local service landing pages and readable static article cards. */
+.hero-copy h1 {font-size:clamp(2rem,4.5vw,3.6rem);line-height:1.15;max-width:22ch;}
+.hero-copy .lead {max-width:58ch;}
+.article-card-content {padding:1.35rem;overflow-wrap:anywhere;}
+.article-card-content .article-card-link {display:inline-block;height:auto;padding:.5rem 0;}
+.article-page .narrow {max-width:820px;}
+.article-page li {margin-bottom:.5rem;}
+.site-nav a {min-height:44px;display:inline-flex;align-items:center;}
+.card h3 {overflow-wrap:anywhere;}
+
+.hero-background {background-image:linear-gradient(90deg,rgba(7,17,31,.97),rgba(7,17,31,.80) 60%,rgba(7,17,31,.4)),url("/assets/images/homeimage.webp");}
+
+/* Pricing estimates remain readable on narrow screens. */
+.estimate-table-wrap {overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius-sm);}
+.estimate-table {width:100%;border-collapse:collapse;text-align:left;}
+.estimate-table caption {padding:1rem;color:var(--text-muted);text-align:left;}
+.estimate-table th,.estimate-table td {padding:1rem;vertical-align:top;border-top:1px solid var(--line);}
+.estimate-table thead {background:var(--surface);}
+.estimate-table td:nth-child(2) {white-space:nowrap;color:var(--sand);font-weight:700;}
+@media(max-width:560px){.estimate-table th,.estimate-table td{padding:.65rem;font-size:.9rem;}.estimate-table th:first-child{min-width:8rem;}.estimate-table td:last-child{min-width:12rem;}}

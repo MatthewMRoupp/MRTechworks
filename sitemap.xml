@@ -1,32 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <url>
-    <loc>https://mrtechworks.com/</loc>
-  </url>
-
-  <url>
-    <loc>https://mrtechworks.com/services/</loc>
-  </url>
-
-  <url>
-    <loc>https://mrtechworks.com/articles/</loc>
-  </url>
-
-  <url>
-    <loc>https://mrtechworks.com/projects/</loc>
-  </url>
-
-  <url>
-    <loc>https://mrtechworks.com/certifications/</loc>
-  </url>
-
-  <url>
-    <loc>https://mrtechworks.com/about/</loc>
-  </url>
-
-  <url>
-    <loc>https://mrtechworks.com/contact/</loc>
-  </url>
-
+  <url><loc>https://mrtechworks.com/</loc></url>
+  <url><loc>https://mrtechworks.com/services/</loc></url>
+  <url><loc>https://mrtechworks.com/articles/</loc></url>
+  <url><loc>https://mrtechworks.com/projects/</loc></url>
+  <url><loc>https://mrtechworks.com/certifications/</loc></url>
+  <url><loc>https://mrtechworks.com/about/</loc></url>
+  <url><loc>https://mrtechworks.com/contact/</loc></url>
+  <url><loc>https://mrtechworks.com/services/computer-repair/</loc></url>
+  <url><loc>https://mrtechworks.com/services/home-wifi/</loc></url>
+  <url><loc>https://mrtechworks.com/services/pc-upgrades/</loc></url>
+  <url><loc>https://mrtechworks.com/services/computer-setup-backups/</loc></url>
+  <url><loc>https://mrtechworks.com/articles/home-wifi-basics/</loc></url>
+  <url><loc>https://mrtechworks.com/articles/internet-speed-vs-wifi-speed/</loc></url>
+  <url><loc>https://mrtechworks.com/articles/home-network-security-checklist/</loc></url>
+  <url><loc>https://mrtechworks.com/articles/mesh-vs-extenders-vs-ethernet/</loc></url>
+  <url><loc>https://mrtechworks.com/articles/password-managers-and-mfa/</loc></url>
+  <url><loc>https://mrtechworks.com/articles/phishing-and-tech-support-scams/</loc></url>
+  <url><loc>https://mrtechworks.com/articles/backup-basics-3-2-1/</loc></url>
+  <url><loc>https://mrtechworks.com/articles/choosing-a-computer/</loc></url>
+  <url><loc>https://mrtechworks.com/articles/pc-build-vs-prebuilt/</loc></url>
+  <url><loc>https://mrtechworks.com/articles/basic-computer-maintenance/</loc></url>
+  <url><loc>https://mrtechworks.com/articles/smart-home-device-safety/</loc></url>
+  <url><loc>https://mrtechworks.com/articles/repair-upgrade-or-replace/</loc></url>
+  <url><loc>https://mrtechworks.com/articles/what-to-do-before-tech-support/</loc></url>
+  <url><loc>https://mrtechworks.com/pricing/</loc></url>
 </urlset>
