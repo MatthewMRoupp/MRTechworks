@@ -123,13 +123,13 @@ function renderArticleCards(searchTerm = "") {
       const topTags = (article.tags || []).slice(0, 4);
 
       const articleURL =
-        `/articles/read/?id=${encodeURIComponent(article.id)}`;
+        `/articles/${encodeURIComponent(article.id)}/`;
 
       return `
         <article class="article-card reveal">
 
           <img
-            src="${escapeHTML(article.image)}"
+            src="${escapeHTML("/" + article.image.replace(/^\//, ""))}"
             alt="${escapeHTML(article.imageAlt || article.title)}"
             class="article-card-image"
             loading="lazy"

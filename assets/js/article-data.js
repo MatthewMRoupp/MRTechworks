@@ -17,7 +17,7 @@ window.MRTECHWORKS_ARTICLES = [
     readTime: "9 min read",
     updated: "2026-06-05",
     summary: "A practical guide to how home Wi-Fi works, why speed tests do not always tell the full story, and how to make a home network feel more reliable.",
-    image: "assets/images/articlesimage.png",
+    image: "assets/images/articlesimage.webp",
     tags: ["wifi", "router", "mesh", "ethernet", "networking", "internet"],
     keyTakeaways: [
       "Wi-Fi is only the wireless part of your home network; your internet service, modem, router, and device all affect performance.",
@@ -84,7 +84,7 @@ window.MRTECHWORKS_ARTICLES = [
     readTime: "8 min read",
     updated: "2026-06-05",
     summary: "A clear explanation of Mbps, latency, upload speed, download speed, and why a fast plan can still feel slow inside the house.",
-    image: "assets/images/articlesimage.png",
+    image: "assets/images/articlesimage.webp",
     tags: ["speed test", "wifi", "latency", "upload", "download", "internet"],
     keyTakeaways: [
       "Download speed is only one part of internet performance.",
@@ -143,7 +143,7 @@ window.MRTECHWORKS_ARTICLES = [
     readTime: "10 min read",
     updated: "2026-06-05",
     summary: "A practical security checklist for routers, Wi-Fi passwords, guest networks, smart devices, and safe home networking habits.",
-    image: "assets/images/articlesimage.png",
+    image: "assets/images/articlesimage.webp",
     tags: ["security", "router", "wifi password", "guest network", "smart home", "updates"],
     keyTakeaways: [
       "A secure home network starts with the router, not just the devices connected to it.",
@@ -211,7 +211,7 @@ window.MRTECHWORKS_ARTICLES = [
     readTime: "8 min read",
     updated: "2026-06-05",
     summary: "A plain-English comparison of the most common ways to fix weak Wi-Fi coverage in a house or small office.",
-    image: "assets/images/articlesimage.png",
+    image: "assets/images/articlesimage.webp",
     tags: ["mesh", "wifi extender", "ethernet", "coverage", "backhaul"],
     keyTakeaways: [
       "Ethernet is best for stability when running a cable is realistic.",
@@ -277,7 +277,7 @@ window.MRTECHWORKS_ARTICLES = [
     readTime: "10 min read",
     updated: "2026-06-05",
     summary: "A practical guide to strong passwords, password reuse, multi-factor authentication, authenticator apps, and safer account habits.",
-    image: "assets/images/articlesimage.png",
+    image: "assets/images/articlesimage.webp",
     tags: ["passwords", "password manager", "mfa", "2fa", "account security"],
     keyTakeaways: [
       "Long, unique passwords are safer than short passwords reused across many accounts.",
@@ -344,7 +344,7 @@ window.MRTECHWORKS_ARTICLES = [
     readTime: "9 min read",
     updated: "2026-06-05",
     summary: "A realistic guide to suspicious emails, fake warnings, urgent texts, remote access scams, and safer ways to verify messages.",
-    image: "assets/images/articlesimage.png",
+    image: "assets/images/articlesimage.webp",
     tags: ["phishing", "scams", "email", "tech support scam", "security"],
     keyTakeaways: [
       "Scams often use urgency, fear, money, account warnings, or fake authority to rush people.",
@@ -405,7 +405,7 @@ window.MRTECHWORKS_ARTICLES = [
     readTime: "10 min read",
     updated: "2026-06-05",
     summary: "A practical guide to cloud backup, external drives, File History, Time Machine, and building a simple backup habit that normal people can actually follow.",
-    image: "assets/images/articlesimage.png",
+    image: "assets/images/articlesimage.webp",
     tags: ["backup", "file history", "time machine", "onedrive", "data recovery", "external drive"],
     keyTakeaways: [
       "A backup is only useful if it can be restored when needed.",
@@ -472,7 +472,7 @@ window.MRTECHWORKS_ARTICLES = [
     readTime: "11 min read",
     updated: "2026-06-05",
     summary: "A beginner-friendly buying guide that explains CPU, RAM, storage, graphics, ports, screen size, and why the best computer depends on the person using it.",
-    image: "assets/images/servicesimage.png",
+    image: "assets/images/servicesimage.webp",
     tags: ["computer", "laptop", "desktop", "buying", "specs", "ram", "ssd"],
     keyTakeaways: [
       "Start with what the computer needs to do, not the sale sticker.",
@@ -549,7 +549,7 @@ window.MRTECHWORKS_ARTICLES = [
     readTime: "10 min read",
     updated: "2026-06-05",
     summary: "A balanced guide to building a computer yourself versus buying one already assembled, including cost, support, warranties, upgrades, and risk.",
-    image: "assets/images/projectsimage.png",
+    image: "assets/images/projectsimage.webp",
     tags: ["pc", "custom build", "prebuilt", "gaming", "hardware", "desktop"],
     keyTakeaways: [
       "Building gives more control, better learning, and easier part selection.",
@@ -615,7 +615,7 @@ window.MRTECHWORKS_ARTICLES = [
     readTime: "9 min read",
     updated: "2026-06-05",
     summary: "A simple maintenance guide for updates, startup apps, storage, dust, restarts, safe downloads, and when to ask for help.",
-    image: "assets/images/servicesimage.png",
+    image: "assets/images/servicesimage.webp",
     tags: ["maintenance", "windows", "updates", "storage", "slow computer", "support"],
     keyTakeaways: [
       "Basic maintenance can prevent many slowdowns and small problems.",
@@ -682,7 +682,7 @@ window.MRTECHWORKS_ARTICLES = [
     readTime: "8 min read",
     updated: "2026-06-05",
     summary: "A practical guide to safer smart home setup, including separate networks, updates, accounts, cameras, and privacy basics.",
-    image: "assets/images/articlesimage.png",
+    image: "assets/images/articlesimage.webp",
     tags: ["smart home", "iot", "camera", "privacy", "security", "router"],
     keyTakeaways: [
       "Smart devices should be updated and protected like small internet-connected computers.",
@@ -743,7 +743,7 @@ window.MRTECHWORKS_ARTICLES = [
     readTime: "9 min read",
     updated: "2026-06-05",
     summary: "A practical decision guide for older PCs and laptops, including storage upgrades, RAM, batteries, Windows compatibility, and repair cost judgment.",
-    image: "assets/images/servicesimage.png",
+    image: "assets/images/servicesimage.webp",
     tags: ["repair", "upgrade", "replace", "old computer", "ssd", "ram", "windows 11"],
     keyTakeaways: [
       "A slow computer may only need an SSD, more RAM, cleanup, or a fresh setup.",
@@ -803,7 +803,7 @@ window.MRTECHWORKS_ARTICLES = [
     readTime: "7 min read",
     updated: "2026-06-05",
     summary: "A simple guide to collecting useful details before asking for help, so troubleshooting is faster, clearer, and less stressful.",
-    image: "assets/images/servicesimage.png",
+    image: "assets/images/servicesimage.webp",
     tags: ["tech support", "troubleshooting", "error message", "support", "computer help"],
     keyTakeaways: [
       "Good notes make tech support faster.",

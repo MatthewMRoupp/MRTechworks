@@ -71,7 +71,7 @@ function setCanonicalURL(url) {
 
 function updateArticleMetadata(article) {
   const articleURL =
-    `https://mrtechworks.com/articles/read/?id=${encodeURIComponent(article.id)}`;
+    `https://mrtechworks.com/articles/${encodeURIComponent(article.id)}/`;
 
   const description =
     article.summary ||
@@ -79,7 +79,7 @@ function updateArticleMetadata(article) {
 
   const imageURL = article.image
     ? new URL(article.image, "https://mrtechworks.com").href
-    : "https://mrtechworks.com/assets/images/articlesimage.png";
+    : "https://mrtechworks.com/assets/images/articlesimage.webp";
 
   document.title = `${article.title} | MR Techworks`;
 
@@ -448,5 +448,5 @@ if (!articleReader) {
 } else if (!article) {
   renderArticleNotFound();
 } else {
-  renderArticle(article);
+  window.location.replace(`/articles/${encodeURIComponent(article.id)}/${window.location.hash}`);
 }
