@@ -1378,3 +1378,6 @@ button.text-link:focus-visible {
 .site-nav .nav-dropdown-menu{position:absolute;top:calc(100% + .35rem);right:0;z-index:1000;min-width:215px;padding:.4rem;border:1px solid var(--line);border-radius:14px;background:var(--surface);box-shadow:0 12px 28px rgba(0,0,0,.28);}
 .site-nav .nav-dropdown-menu a{display:flex;width:100%;padding:.7rem .85rem;border-radius:9px;white-space:nowrap;}
 @media(max-width:750px){.site-nav .nav-dropdown-menu{right:0;min-width:190px;}.site-nav .nav-dropdown summary{padding:.5rem .72rem;}}
+
+/* Keep a continuous pointer path from About to its hover submenu. */
+.site-nav .nav-dropdown-menu{top:100%;}
