@@ -42,4 +42,9 @@ The supplied C++ payroll demo already references a missing payroll.js and contai
 
 ## Pricing page update
 
-/pricing/ is now the central rates and estimates page. Diagnostics are $50 for up to one hour, credited toward labor for the same issue; standard labor remains $50/hour. Remote sessions are $25 for the first 30 minutes and $12.50 per additional 15 minutes. Agreed local home visits are $75 for the first hour, then $50/hour in 15-minute increments; additional travel charges require advance agreement. Standard diagnostics are not automatically added to remote or home-visit charges. Estimates include clearly described scope and exclusions. Rates are linked from every site header/footer and key service/contact areas. The CPE referral page has not been added in this update.
+/pricing/ is now the central rates and estimates page. Diagnostics are $50 for up to one hour, credited toward labor for the same issue; standard labor remains $50/hour. Remote sessions are $25 for the first 30 minutes and $12.50 per additional 15 minutes. Agreed local home visits are $75 for the first hour, then $50/hour in 15-minute increments; additional travel charges require advance agreement. Standard diagnostics are not automatically added to remote or home-visit charges. Estimates include clearly described scope and exclusions. Rates are linked from every site header/footer and key service/contact areas. The CPE business referral page was added in a later update.
+
+
+## Business solutions page (November 2026)
+
+Added /business/ explaining when customers should contact CPE IT Solutions for managed support, networks, security, backups, cloud migrations, consulting, and business hardware. CPE is publicly listed as a Corning Area Chamber of Commerce member; the page does not identify the Chamber as a customer. Added navigation and footer links throughout the customer-facing site, internal cross-links on the homepage, services, and contact pages, and an entry in sitemap.xml. External CPE links point directly to the CPE website.
