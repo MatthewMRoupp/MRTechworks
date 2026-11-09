@@ -5,7 +5,7 @@
   document.querySelectorAll('.site-nav .nav-dropdown details').forEach((menu) => {
     menu.addEventListener('mouseenter', () => { menu.open = true; });
     menu.addEventListener('mouseleave', () => {
-      if (!menu.contains(document.activeElement)) menu.open = false;
+      if (!menu.contains(document.activeElement) || !document.activeElement.matches(':focus-visible')) menu.open = false;
     });
     menu.addEventListener('focusout', (event) => {
       if (!menu.contains(event.relatedTarget) && !menu.matches(':hover')) menu.open = false;
