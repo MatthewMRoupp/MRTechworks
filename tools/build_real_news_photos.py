@@ -163,8 +163,23 @@ def normalize_license(value, url):
         return None
     return label, url
 
+_license_debug_count = 0
+
 def validate_file(page):
+    global _license_debug_count
     title = page.get("title", "")
+    if _license_debug_count < 15:
+        sample = (page.get("imageinfo") or [None])[0] or {}
+        meta = sample.get("extmetadata") or {}
+        print("LICENSE_DIAGNOSTIC", json.dumps({
+            "title": title,
+            "mime": sample.get("mime"),
+            "dimensions": [sample.get("width"), sample.get("height")],
+            "licenseShortName": (meta.get("LicenseShortName") or {}).get("value"),
+            "licenseUrl": (meta.get("LicenseUrl") or {}).get("value"),
+            "artist": str((meta.get("Artist") or {}).get("value",""))[:100]
+        },ensure_ascii=False),flush=True)
+        _license_debug_count += 1
     file_name = title.removeprefix("File:")
     low = file_name.lower().replace("_", " ")
     if not low.endswith(PHOTO_EXTENSIONS):
