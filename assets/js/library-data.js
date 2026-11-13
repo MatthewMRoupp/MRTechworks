@@ -23,8 +23,8 @@ window.MRTECHWORKS_LIBRARY_EXTRA = [
       "security",
       "support"
     ],
-    "image": "/assets/images/office-desktop-computer.jpg",
-    "imageAlt": "Desktop computer in a workspace; illustrative photo for Windows 10 support"
+    "image": "/assets/images/article-library/real-photos/news-photo-windows-computer-02.webp",
+    "imageAlt": "Laptop during Windows operating-system installation"
   },
   {
     "group": "tech",
@@ -46,8 +46,8 @@ window.MRTECHWORKS_LIBRARY_EXTRA = [
       "security",
       "support"
     ],
-    "image": "/assets/images/laptop.jpg",
-    "imageAlt": "Laptop in a workspace; illustrative photo for Windows updates"
+    "image": "/assets/images/article-library/real-photos/news-photo-microsoft-surface-01.webp",
+    "imageAlt": "Microsoft Surface Laptop 7 photographed on a table"
   },
   {
     "group": "gaming",
@@ -69,8 +69,8 @@ window.MRTECHWORKS_LIBRARY_EXTRA = [
       "hardware",
       "software"
     ],
-    "image": "/assets/images/desktop-gaming.jpg",
-    "imageAlt": "Desktop gaming setup; illustrative photo, not Valve Steam Machine hardware"
+    "image": "/assets/images/article-library/real-photos/news-photo-featured-steam-machine-front.webp",
+    "imageAlt": "Valve Steam Machine hardware photographed from the front"
   },
   {
     "group": "gaming",
@@ -91,8 +91,8 @@ window.MRTECHWORKS_LIBRARY_EXTRA = [
       "gaming",
       "hardware"
     ],
-    "image": "/assets/images/hero-tech-long.webp",
-    "imageAlt": "Abstract technology illustration; not Nintendo Switch 2 hardware"
+    "image": "/assets/images/article-library/real-photos/news-photo-nintendo-switch-2-01.webp",
+    "imageAlt": "Nintendo Switch 2 console photographed in its docking station"
   },
   {
     "group": "help",
@@ -138,8 +138,8 @@ window.MRTECHWORKS_LIBRARY_EXTRA = [
       "support",
       "data"
     ],
-    "image": "/assets/images/hdd-ssd-m2-storage-devices.jpg",
-    "imageAlt": "Comparison of hard drives and solid-state storage devices"
+    "image": "/assets/images/article-library/real-photos/news-photo-nvme-ssd-03.webp",
+    "imageAlt": "Western Digital SN850X NVMe SSD drive, front view"
   },
   {
     "group": "help",
