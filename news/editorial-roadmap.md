@@ -1,17 +1,17 @@
 # MR Techworks — 100-topic editorial roadmap
 
-Last reviewed: November 13, 2026. This is an editorial planning inventory, not a claim that all pieces are published.
+Last reviewed: November 13, 2026 after first sourced content expansion batch. This is an editorial planning inventory, not a claim that all pieces are published.
 
 ## Counts
 
 | Section | Total planned titles | Published as of this update | Remaining |
 |---|---:|---:|---:|
-| Gaming News | 30 | 3 | 27 |
-| Tech News | 30 | 2 | 28 |
-| Info / Help Articles | 40 | 14 | 26 |
-| **Total** | **100** | **19** | **81** |
+| Gaming News | 30 | 5 | 25 |
+| Tech News | 30 | 4 | 26 |
+| Info / Help Articles | 40 | 18 | 22 |
+| **Total** | **100** | **27** | **73** |
 
-The existing Microsoft outage story is included under Tech News. Existing evergreen guides are included under Info / Help rather than duplicated. All 19 published articles are indexed together at /articles/. The guide metadata lives in /assets/js/article-data.js; editorial news and the standalone outage guide are indexed from /assets/js/library-data.js.
+The existing Microsoft outage story is included under Tech News. Existing evergreen guides are included under Info / Help rather than duplicated. All 27 published articles are indexed together at /articles/. The guide metadata lives in /assets/js/article-data.js; editorial news and the standalone outage guide are indexed from /assets/js/library-data.js.
 
 ## Editorial policy
 
@@ -32,11 +32,11 @@ The existing Microsoft outage story is included under Tech News. Existing evergr
 | 03 | Nintendo Switch 2 worldwide sales through September 2026 | Published |
 | 04 | GTA VI launch-day patches and performance (after release) | Planned |
 | 05 | Official GTA VI PC platform status and future announcements | Planned |
-| 06 | Nintendo first-party release schedule and platform support | Planned |
+| 06 | Nintendo Switch 2 compatibility and platform support | Published |
 | 07 | PlayStation Plus monthly catalog and policy changes | Planned |
 | 08 | Xbox Game Pass monthly catalog and price changes | Planned |
 | 09 | Steam's major new-release calendar | Planned |
-| 10 | New PC handheld hardware and software releases | Planned |
+| 10 | Valve Steam Machine and SteamOS hardware coverage | Published |
 | 11 | Cross-play and cross-progression support changes | Planned |
 | 12 | Cloud-gaming platform availability and features | Planned |
 | 13 | Console subscription benefits and policy changes | Planned |
@@ -65,8 +65,8 @@ The existing Microsoft outage story is included under Tech News. Existing evergr
 | 01 | Microsoft 365 outage November 12–13, 2026 | Published |
 | 02 | NVIDIA leadership transition, November 2026 | Published |
 | 03 | November 2026 Microsoft security patches and risk | Planned |
-| 04 | Windows 11 feature-update changes and support dates | Planned |
-| 05 | Windows 10 Extended Security Updates coverage | Planned |
+| 04 | Windows 11 26H2 feature-update changes and support dates | Published |
+| 05 | Windows 10 Extended Security Updates coverage | Published |
 | 06 | Microsoft 365 service-health reporting explained | Planned |
 | 07 | Microsoft Copilot feature and licensing announcements | Planned |
 | 08 | Google Gemini announcements and availability | Planned |
@@ -111,11 +111,11 @@ The existing Microsoft outage story is included under Tech News. Existing evergr
 | 12 | Repair, upgrade or replace an older PC | Published |
 | 13 | Before asking for tech support | Published |
 | 14 | Outage, internet, or device: how to tell | Published |
-| 15 | How to tell if an SSD or NVMe drive is failing | Planned |
+| 15 | How to tell if an SSD or NVMe drive is failing | Published |
 | 16 | RAM diagnostics when quick tests look fine | Planned |
-| 17 | Windows startup repair without deleting files | Planned |
-| 18 | BitLocker recovery: keys and preparation | Planned |
-| 19 | Cloning an SSD safely | Planned |
+| 17 | Windows startup repair without deleting files | Published |
+| 18 | BitLocker recovery: keys and preparation | Published |
+| 19 | Cloning an SSD safely | Published |
 | 20 | Overheating and thermal throttling symptoms | Planned |
 | 21 | BIOS and UEFI updates: precautions | Planned |
 | 22 | Laptop RAM and SSD upgrade compatibility | Planned |
