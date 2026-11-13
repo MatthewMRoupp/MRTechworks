@@ -18,3 +18,7 @@ The /articles/ search bar stays prominent. A collapsed, keyboard-accessible `<de
 Supported subject IDs: `ai`, `cloud`, `data`, `gaming`, `hardware`, `industry`, `networking`, `security`, `software`, `support`. Choose relevant subjects rather than adding filler labels. Every published article remains discoverable through All articles regardless of subjects.
 
 No database or external search service is required. News full-body search is not provided unless article text is deliberately indexed. Consider a generated static full-text index if the library grows substantially.
+
+## Rights and attribution
+
+Follow [editorial sourcing and media permissions](media-and-attribution.md) for all article text, quoted material, stock photos, newsroom assets, screenshots and Creative Commons derivatives. The [first 14 image replacement source plan](image-source-plan.md) records filenames and photographer/license credits. These are candidates only; no new image paths should go live before the actual files have been uploaded and verified.
