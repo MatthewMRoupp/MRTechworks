@@ -23,8 +23,8 @@ window.MRTECHWORKS_LIBRARY_EXTRA = [
       "security",
       "support"
     ],
-    "image": "/assets/images/office-desktop-computer.jpg",
-    "imageAlt": "Desktop computer in a workspace; illustrative photo for Windows 10 support"
+    "image": "/assets/images/article-library/real-photos/news-photo-windows-computer-02.webp",
+    "imageAlt": "Laptop during Windows operating-system installation"
   },
   {
     "group": "tech",
@@ -46,8 +46,8 @@ window.MRTECHWORKS_LIBRARY_EXTRA = [
       "security",
       "support"
     ],
-    "image": "/assets/images/laptop.jpg",
-    "imageAlt": "Laptop in a workspace; illustrative photo for Windows updates"
+    "image": "/assets/images/article-library/real-photos/news-photo-microsoft-surface-01.webp",
+    "imageAlt": "Microsoft Surface Laptop 7 photographed on a table"
   },
   {
     "group": "gaming",
@@ -69,8 +69,8 @@ window.MRTECHWORKS_LIBRARY_EXTRA = [
       "hardware",
       "software"
     ],
-    "image": "/assets/images/desktop-gaming.jpg",
-    "imageAlt": "Desktop gaming setup; illustrative photo, not Valve Steam Machine hardware"
+    "image": "/assets/images/article-library/real-photos/news-photo-featured-steam-machine-front.webp",
+    "imageAlt": "Valve Steam Machine hardware photographed from the front"
   },
   {
     "group": "gaming",
@@ -91,8 +91,8 @@ window.MRTECHWORKS_LIBRARY_EXTRA = [
       "gaming",
       "hardware"
     ],
-    "image": "/assets/images/hero-tech-long.webp",
-    "imageAlt": "Abstract technology illustration; not Nintendo Switch 2 hardware"
+    "image": "/assets/images/article-library/real-photos/news-photo-nintendo-switch-2-01.webp",
+    "imageAlt": "Nintendo Switch 2 console photographed in its docking station"
   },
   {
     "group": "help",
@@ -138,8 +138,8 @@ window.MRTECHWORKS_LIBRARY_EXTRA = [
       "support",
       "data"
     ],
-    "image": "/assets/images/hdd-ssd-m2-storage-devices.jpg",
-    "imageAlt": "Comparison of hard drives and solid-state storage devices"
+    "image": "/assets/images/article-library/real-photos/news-photo-nvme-ssd-03.webp",
+    "imageAlt": "Western Digital SN850X NVMe SSD drive, front view"
   },
   {
     "group": "help",
@@ -161,8 +161,8 @@ window.MRTECHWORKS_LIBRARY_EXTRA = [
       "support",
       "data"
     ],
-    "image": "/assets/images/laptop-repair.jpg",
-    "imageAlt": "Laptop being serviced on a workbench"
+    "image": "/assets/images/article-library/real-photos/news-photo-laptop-repair-02.webp",
+    "imageAlt": "Computer technician working on a laptop repair"
   },
   {
     "group": "help",
@@ -185,8 +185,8 @@ window.MRTECHWORKS_LIBRARY_EXTRA = [
       "data",
       "support"
     ],
-    "image": "/assets/images/external-storage-drives.webp",
-    "imageAlt": "External storage drives and backup hardware"
+    "image": "/assets/images/article-library/real-photos/news-photo-nvme-ssd-01.webp",
+    "imageAlt": "Plextor M8Pe solid-state drive photographed for a hardware guide"
   },
   {
     "group": "tech",
@@ -207,8 +207,8 @@ window.MRTECHWORKS_LIBRARY_EXTRA = [
       "hardware",
       "industry"
     ],
-    "image": "/assets/images/desktop-upgrade-repair.jpg",
-    "imageAlt": "Computer hardware undergoing service; illustrative image for semiconductor industry news"
+    "image": "/assets/images/article-library/real-photos/news-photo-nvidia-rtx-4090-01.webp",
+    "imageAlt": "ASUS ROG Strix NVIDIA GeForce RTX 4090 graphics card"
   },
   {
     "group": "tech",
@@ -230,8 +230,8 @@ window.MRTECHWORKS_LIBRARY_EXTRA = [
       "software",
       "support"
     ],
-    "image": "/assets/images/showing-someone-support-in-person.jpg",
-    "imageAlt": "Computer support demonstration; illustrative image for Microsoft 365 service disruptions"
+    "image": "/assets/images/article-library/real-photos/news-photo-microsoft-office-02.webp",
+    "imageAlt": "Aerial photograph of the Microsoft Redmond campus in September 2021"
   },
   {
     "group": "gaming",
@@ -271,8 +271,8 @@ window.MRTECHWORKS_LIBRARY_EXTRA = [
       "gaming",
       "software"
     ],
-    "image": "/assets/images/gaming-pc-build-parts.jpg",
-    "imageAlt": "PC gaming hardware; illustrative image for Xbox classics on Windows PCs"
+    "image": "/assets/images/article-library/real-photos/news-photo-featured-xbox-series-x-2026.webp",
+    "imageAlt": "Xbox Series X console photographed in July 2026"
   },
   {
     "group": "gaming",
@@ -291,8 +291,8 @@ window.MRTECHWORKS_LIBRARY_EXTRA = [
       "gaming",
       "hardware"
     ],
-    "image": "/assets/images/homeimage.webp",
-    "imageAlt": "Abstract technology illustration; not Nintendo Switch 2 product photography"
+    "image": "/assets/images/article-library/real-photos/news-photo-featured-switch-2-launch.webp",
+    "imageAlt": "Nintendo Switch 2 release event in New York City"
   },
   {
     "group": "help",
