@@ -1442,3 +1442,79 @@ button.text-link:focus-visible {
   max-width: 60ch;
   color: var(--text-muted);
 }
+
+
+/* ===== Shared interior-page hero layout =====
+   Keeps headings, copy, images and actions consistent between pages. */
+.page-hero { padding: clamp(2.75rem,5vw,4.25rem) 0; }
+.page-hero .split-hero {
+  grid-template-columns: minmax(0,1.18fr) minmax(0,.82fr);
+  align-items: center;
+  gap: clamp(1.75rem,3.5vw,3.5rem);
+}
+.page-hero .page-hero-copy { min-width: 0; max-width: none; }
+.page-hero .eyebrow {
+  margin: 0 0 .65rem;
+  font-size: .85rem;
+  line-height: 1.5;
+  letter-spacing: .105em;
+}
+.page-hero h1, .page-hero .page-hero-copy h1 {
+  max-width: 23ch;
+  margin: 0;
+  font-size: clamp(2.2rem,3.85vw,3.55rem);
+  line-height: 1.12;
+  letter-spacing: -.035em;
+}
+.page-hero h1.section-title { display: block; padding: 0; border: 0; }
+.page-hero .lead {
+  max-width: 64ch;
+  margin: 1rem 0 0;
+  font-size: 1.075rem;
+  line-height: 1.65;
+}
+.page-hero .page-hero-copy > p:not(.lead):not(.eyebrow) { margin: .9rem 0 0; }
+.page-hero .button-group, .page-hero .badge-list {
+  margin-top: 1.25rem;
+  gap: .7rem;
+}
+.page-hero .badge-list + .button-group { margin-top: 1rem; }
+.page-hero .badge { padding: .42rem .75rem; font-size: .88rem; }
+.page-hero .btn { min-height: 48px; }
+.page-hero .image-frame, .page-hero .hero-panel {
+  width: 100%;
+  max-width: 440px;
+  justify-self: end;
+}
+.page-hero .image-frame { padding: .6rem; }
+.page-hero .image-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: calc(var(--radius) - .6rem);
+}
+.page-hero .hero-panel { min-height: 0; }
+.page-hero .hero-panel-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center top;
+}
+.page-hero .service-note { max-width: 720px; margin: 1.25rem 0 0; line-height: 1.55; }
+main > .page-hero + .section { padding-top: clamp(2.25rem,4vw,3.25rem); }
+@media (max-width: 920px) {
+  .page-hero .split-hero { grid-template-columns: minmax(0,1fr); gap: 1.6rem; }
+  .page-hero .image-frame, .page-hero .hero-panel { justify-self: start; max-width: 520px; }
+}
+@media (max-width: 560px) {
+  .page-hero { padding: 2.5rem 0; }
+  .page-hero h1, .page-hero .page-hero-copy h1 {
+    font-size: clamp(2rem,8.8vw,2.7rem);
+  }
+  .page-hero .button-group { align-items: stretch; gap: .7rem; }
+  .page-hero .button-group .btn { flex: 1 1 100%; }
+  .page-hero .badge-list { gap: .5rem; }
+}
