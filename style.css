@@ -1767,6 +1767,7 @@ main > .page-hero + .section { padding-top: clamp(2.25rem,4vw,3.25rem); }
 .library-control input::placeholder{color:var(--text-muted);opacity:.85;}
 .library-control input:focus-visible,.library-control select:focus-visible{outline:3px solid #7dc5ff;outline-offset:2px;}
 .library-control input[aria-invalid="true"]{border-color:#f4a1a1;}
+.library-control input[type="date"]{color-scheme:dark;}
 .library-date-fieldset{min-width:0;margin:0;padding:1rem;border:1px solid var(--line);border-radius:12px;}
 .library-date-fieldset legend{font-size:.92rem;font-weight:650;padding:0 .35rem;}
 .library-date-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.9rem;}
