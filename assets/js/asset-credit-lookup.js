@@ -28,14 +28,17 @@
           span.className = "asset-media-credit";
           span.textContent = (caption.textContent.trim() ? " · " : "") + item.creditLine;
           caption.appendChild(span);
-          if (item.sourceUrl) {
+          const addLink = (url, label) => {
+            if (typeof url !== "string" || !/^https:\/\//i.test(url)) return;
             const link = document.createElement("a");
-            link.href = item.sourceUrl;
-            link.textContent = " Source";
+            link.href = url;
+            link.textContent = label;
             link.rel = "noopener noreferrer";
             link.target = "_blank";
             span.appendChild(link);
-          }
+          };
+          addLink(item.sourceUrl, " · Source");
+          addLink(item.licenseUrl, " · License");
         }
       })
       .catch(() => { /* Optional asset index not uploaded yet. */ });
