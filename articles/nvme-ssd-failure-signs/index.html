@@ -1,0 +1,72 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Is Your SSD or NVMe Drive Failing? How to Investigate Boot Problems | MR Techworks</title><meta name="description" content="Learn the difference between SSD failure, RAM errors and Windows corruption, and the safest diagnostic sequence before replacing parts."/><meta name="robots" content="index,follow"/><link rel="canonical" href="https://mrtechworks.com/articles/nvme-ssd-failure-signs/"/><link rel="stylesheet" href="/style.css"/><link rel="icon" href="/assets/images/favicon.ico"/><meta property="og:type" content="article"/><meta property="og:title" content="Is Your SSD or NVMe Drive Failing? How to Investigate Boot Problems"/><meta property="og:description" content="Learn the difference between SSD failure, RAM errors and Windows corruption, and the safest diagnostic sequence before replacing parts."/><meta property="og:url" content="https://mrtechworks.com/articles/nvme-ssd-failure-signs/"/><meta property="og:image" content="https://mrtechworks.com/assets/images/articlesimage.webp"/><meta property="article:published_time" content="2026-11-13"/><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Is Your SSD or NVMe Drive Failing? How to Investigate Boot Problems","description":"Learn the difference between SSD failure, RAM errors and Windows corruption, and the safest diagnostic sequence before replacing parts.","datePublished":"2026-11-13","dateModified":"2026-11-13","mainEntityOfPage":"https://mrtechworks.com/articles/nvme-ssd-failure-signs/","author":{"@type":"Organization","name":"MR Techworks"},"publisher":{"@type":"Organization","name":"MR Techworks"}}</script></head><body><a class="skip-link" href="#main-content">Skip to content</a><header class="site-header">
+<div class="container header-inner">
+<a aria-label="MR Techworks home" class="site-brand" href="/">
+<span class="site-logo">MR</span>
+<span class="site-brand-text">
+<span class="site-brand-name">MR Techworks</span>
+<span class="site-brand-tag">Computer Repair &amp; IT Support</span>
+</span>
+</a>
+<nav aria-label="Primary" class="site-nav"><ul>
+<li><a href="/" >Home</a></li>
+<li><a href="/services/">Services</a></li>
+<li><a href="/pricing/">Pricing</a></li>
+<li><a href="/business/">Business Solutions</a></li>
+<li><a href="/articles/">Articles</a></li>
+<li><a href="/projects/">Projects</a></li>
+<li class="nav-dropdown"><details><summary>About <span class="nav-chevron" aria-hidden="true"></span></summary><div class="nav-dropdown-menu"><a href="/about/">About MR Techworks</a><a href="/certifications/">Certifications &amp; Training</a><a href="/contact/">Contact</a></div></details></li></ul></nav>
+</div>
+</header><main id="main-content"><section class="section article-page"><article class="container narrow"><p><a href="/articles/">← Article Library</a></p><p class="eyebrow">Info &amp; Help · Hardware Troubleshooting</p><h1>Is Your SSD or NVMe Drive Failing? How to Investigate Boot Problems</h1><p class="news-meta">By MR Techworks · Published <time datetime="2026-11-13">November 13, 2026</time></p><p class="lead">Boot loops, missing files and freezes can suggest storage trouble, but they can also originate in RAM, Windows, drivers or power delivery. A careful diagnosis avoids guessing—and protects the data you may still be able to recover.</p><img class="article-hero-image" src="/assets/images/articlesimage.webp" alt="Abstract technology illustration for a troubleshooting guide" width="1440" height="1080" loading="lazy"/><section><h2>What symptoms make a drive suspicious?</h2><p>Repeated read errors, unexpected file corruption, inconsistent disk detection and boot failures can be signs of storage trouble. Some faults appear only intermittently and may not show in a short test.</p><p>A computer becoming stable after replacing a drive supports further investigation, but it does not prove the original SSD was the only cause. Always check what actually changed.</p></section><section><h2>Check disk health without stressing it</h2><p>On a working Windows installation, an elevated PowerShell session can use Get-PhysicalDisk to list device health and operational status. Get-PhysicalDisk | Get-StorageReliabilityCounter may reveal wear, temperatures or error counts when the hardware reports them.</p><p>A &#39;Healthy&#39; status and missing counter values are not conclusive. Driver support and SSD firmware differ; a manufacturer&#39;s diagnostic tool may expose more detailed health information.</p></section><section><h2>Rule out similar failures</h2><p>Memory problems can corrupt data and mimic storage failures. A loose connection, motherboard slot, power issue or unstable firmware setting can also produce I/O symptoms. Compare a known-good drive and test RAM separately when possible.</p><p>Write down each change and the resulting behavior. Swapping several components at once makes the root cause much harder to establish.</p></section><section><h2>Protect files before aggressive tests</h2><p>If the disk intermittently disappears or repeatedly fails reads, prioritize backup or professional recovery assessment rather than intensive write benchmarks. Avoid repeatedly running repair utilities on an unstable drive without considering the possibility of worsening file loss.</p><p>A successful clone may save an operating system, but it does not certify the source hardware. A failed clone may reflect damaged sectors, adapter problems, encryption or other compatibility restrictions.</p></section><section><h2>A diagnostic order</h2><p>First, document errors and protect accessible data. Second, verify whether UEFI/BIOS consistently detects the SSD. Third, check supported health metrics and relevant Windows error logs. Fourth, test other likely causes such as RAM and power.</p><p>Only then decide whether replacement, firmware repair or Windows recovery is justified. If the data is irreplaceable, seek data-recovery advice before repeated attempts.</p></section><div class="article-references"><h2>Sources and further reading</h2><p>Original MR Techworks guidance based on Microsoft technical and support documentation. External text has not been copied.</p><ul><li><a href="https://learn.microsoft.com/en-us/powershell/module/storage/get-physicaldisk?view=windowsserver2025-ps" target="_blank" rel="noopener noreferrer">Microsoft Learn — Get-PhysicalDisk</a></li><li><a href="https://learn.microsoft.com/en-us/powershell/module/storage/get-storagereliabilitycounter?view=windowsserver2025-ps" target="_blank" rel="noopener noreferrer">Microsoft Learn — Get-StorageReliabilityCounter</a></li><li><a href="https://support.microsoft.com/en-us/windows/experience/backup-recovery/recovery-options-in-windows" target="_blank" rel="noopener noreferrer">Microsoft Support — Recovery options in Windows</a></li></ul><p class="text-muted">Reviewed November 13, 2026. Recovery options and interface wording can vary by Windows version.</p></div><p><a href="/articles/">Browse more technology guides</a> · <a href="/contact/">Get local help</a></p></article></section></main><footer class="site-footer">
+<div class="container footer-grid">
+<!-- Brand -->
+<div>
+<a aria-label="MR Techworks home" class="site-brand footer-brand" href="/">
+<span class="site-logo">MR</span>
+<span class="site-brand-text">
+<span class="site-brand-name">MR Techworks</span>
+<span class="site-brand-tag">
+              Practical technology support, projects, and guidance
+            </span>
+</span>
+</a>
+</div>
+<!-- Explore -->
+<div>
+<h2 class="footer-heading">Explore</h2>
+<div class="footer-links">
+<a href="/">Home</a>
+<a href="/services/">Services</a><a href="/pricing/">Pricing</a>
+<a href="/business/">Business Solutions</a>
+<a href="/news/">Tech News</a>
+<a href="/articles/">Articles</a>
+<a href="/projects/">Projects</a>
+<a href="/certifications/">Certifications</a>
+<a href="/about/">About</a>
+<a href="/contact/">Contact</a>
+</div>
+</div>
+<!-- Connect -->
+<div>
+<h2 class="footer-heading">Connect</h2>
+<div class="footer-links">
+<a href="mailto:matthew@mrtechworks.com">
+            matthew@mrtechworks.com
+          </a>
+<a href="sms:+16073469349">
+            Text (preferred): 607-346-9349
+          </a>
+<a href="https://github.com/MatthewMRoupp" rel="noopener noreferrer" target="_blank">
+            GitHub
+          </a>
+<a href="https://www.linkedin.com/in/matthew-roupp/" rel="noopener noreferrer" target="_blank">
+            LinkedIn
+          </a>
+</div>
+</div>
+</div>
+<div class="container footer-bottom">
+<p>
+        © 2026 MR Techworks. Built by Matthew Roupp.
+      </p>
+</div>
+</footer><script src="/assets/js/nav-hover.js" defer></script></body></html>
