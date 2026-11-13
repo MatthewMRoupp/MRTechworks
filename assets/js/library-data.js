@@ -5,6 +5,175 @@
 window.MRTECHWORKS_LIBRARY_EXTRA = [
   {
     "group": "tech",
+    "topic": "Windows & Support",
+    "title": "Windows 10 in 2026: Extended Security Updates and Your Options",
+    "summary": "What the consumer ESU program protects, who qualifies, and how to plan a supported Windows transition.",
+    "href": "/news/windows-10-extended-security-updates-2026/",
+    "date": "2026-11-13",
+    "tags": [
+      "windows 10",
+      "esu",
+      "extended security updates",
+      "windows 11",
+      "security",
+      "support"
+    ],
+    "subjects": [
+      "software",
+      "security",
+      "support"
+    ]
+  },
+  {
+    "group": "tech",
+    "topic": "Windows & Support",
+    "title": "Windows 11 26H2: How to Check Your Version and Support Date",
+    "summary": "Windows 11 version 26H2 support dates, feature releases and steps to check your installed version.",
+    "href": "/news/windows-11-26h2-update-support-2026/",
+    "date": "2026-11-13",
+    "tags": [
+      "windows 11",
+      "26h2",
+      "25h2",
+      "26h1",
+      "updates",
+      "microsoft"
+    ],
+    "subjects": [
+      "software",
+      "security",
+      "support"
+    ]
+  },
+  {
+    "group": "gaming",
+    "topic": "PC Gaming Hardware",
+    "title": "Valve's New Steam Machine: From the 2025 Announcement to 2026 Reservations",
+    "summary": "Valve's 2025 Steam hardware reveal, 2026 reservation options, SteamOS and PC gaming implications.",
+    "href": "/gaming-news/steam-machine-2025-2026-explained/",
+    "date": "2026-11-13",
+    "tags": [
+      "steam machine",
+      "steam controller",
+      "valve",
+      "steamos",
+      "steam frame",
+      "gaming pc"
+    ],
+    "subjects": [
+      "gaming",
+      "hardware",
+      "software"
+    ]
+  },
+  {
+    "group": "gaming",
+    "topic": "Nintendo",
+    "title": "Nintendo Switch 2 Compatibility: Which Original Switch Games and Controllers Work?",
+    "summary": "Backwards compatibility for Nintendo Switch 2 games, Joy-Con controllers, digital titles and saves.",
+    "href": "/gaming-news/nintendo-switch-2-backwards-compatibility/",
+    "date": "2026-11-13",
+    "tags": [
+      "nintendo",
+      "switch 2",
+      "backwards compatibility",
+      "joy-con",
+      "game saves",
+      "controllers"
+    ],
+    "subjects": [
+      "gaming",
+      "hardware"
+    ]
+  },
+  {
+    "group": "help",
+    "topic": "Data Protection",
+    "title": "How to Find a BitLocker Recovery Key Before a Windows Repair",
+    "summary": "Where to find your 48-digit BitLocker recovery key and what to avoid when changing encrypted hardware.",
+    "href": "/articles/bitlocker-recovery-key-guide/",
+    "date": "2026-11-13",
+    "tags": [
+      "bitlocker",
+      "recovery key",
+      "windows",
+      "encryption",
+      "ssd",
+      "microsoft account"
+    ],
+    "subjects": [
+      "data",
+      "security",
+      "support"
+    ]
+  },
+  {
+    "group": "help",
+    "topic": "Hardware Troubleshooting",
+    "title": "Is Your SSD or NVMe Drive Failing? How to Investigate Boot Problems",
+    "summary": "SSD symptoms, PowerShell health indicators, RAM comparisons and data-preserving diagnostic steps.",
+    "href": "/articles/nvme-ssd-failure-signs/",
+    "date": "2026-11-13",
+    "tags": [
+      "ssd",
+      "nvme",
+      "drive failure",
+      "boot loop",
+      "ram",
+      "storage",
+      "powershell"
+    ],
+    "subjects": [
+      "hardware",
+      "support",
+      "data"
+    ]
+  },
+  {
+    "group": "help",
+    "topic": "Windows Repair",
+    "title": "Windows Won't Boot? Try Safer Recovery Options Before Resetting",
+    "summary": "Windows recovery options, startup repair, uninstall updates and preserving files before a reset.",
+    "href": "/articles/windows-startup-repair-before-reset/",
+    "date": "2026-11-13",
+    "tags": [
+      "startup repair",
+      "winre",
+      "windows",
+      "boot failure",
+      "reset this pc",
+      "system restore"
+    ],
+    "subjects": [
+      "software",
+      "support",
+      "data"
+    ]
+  },
+  {
+    "group": "help",
+    "topic": "Storage & Backups",
+    "title": "Cloning an SSD to a New Drive: A Safe Windows Migration Checklist",
+    "summary": "A checklist for cloning Windows boot drives with BitLocker, recovery partitions and first-boot verification.",
+    "href": "/articles/ssd-cloning-checklist/",
+    "date": "2026-11-13",
+    "tags": [
+      "clone",
+      "ssd",
+      "nvme",
+      "bitlocker",
+      "boot drive",
+      "windows",
+      "backup"
+    ],
+    "subjects": [
+      "hardware",
+      "data",
+      "support"
+    ]
+  },
+  {
+    "group": "tech",
     "topic": "Industry",
     "title": "NVIDIA CEO Transition: What Is Confirmed and What Comes Next",
     "summary": "NVIDIA's November 2026 CEO transition, the interim leadership announcement, and what the change does—and does not—mean for hardware customers.",
