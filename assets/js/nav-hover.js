@@ -3,9 +3,9 @@
   document.querySelectorAll('.site-nav > ul').forEach((list) => {
     if (list.querySelector('[data-resources-menu]')) return;
     const items = [
+      {href:'/articles/',label:'Article Library'},
       {href:'/news/',label:'Tech News'},
       {href:'/gaming-news/',label:'Gaming News'},
-      {href:'/articles/',label:'Help Articles'},
       {href:'/projects/',label:'Projects'}
     ];
     const li=document.createElement('li');
