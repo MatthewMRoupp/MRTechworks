@@ -1,6 +1,7 @@
-/* Published news and standalone guides not already in article-data.js.
-   Update when publishing a new story; do not index drafts or planned topics.
-   Date is the actual article publication date, not the date of the event. */
+/* Index only published news and standalone guides not in article-data.js.
+ * subjects: standardized tags used by the Article Library Advanced Search.
+ * date: actual article publication date, not the date of the event described.
+ * Keep this index up to date when new articles are published. */
 window.MRTECHWORKS_LIBRARY_EXTRA = [
   {
     "group": "tech",
@@ -15,6 +16,11 @@ window.MRTECHWORKS_LIBRARY_EXTRA = [
       "colette kress",
       "graphics cards",
       "AI"
+    ],
+    "subjects": [
+      "ai",
+      "hardware",
+      "industry"
     ]
   },
   {
@@ -31,6 +37,11 @@ window.MRTECHWORKS_LIBRARY_EXTRA = [
       "microsoft 365",
       "outage",
       "teams"
+    ],
+    "subjects": [
+      "cloud",
+      "software",
+      "support"
     ]
   },
   {
@@ -45,6 +56,9 @@ window.MRTECHWORKS_LIBRARY_EXTRA = [
       "rockstar",
       "playstation",
       "xbox",
+      "gaming"
+    ],
+    "subjects": [
       "gaming"
     ]
   },
@@ -61,6 +75,10 @@ window.MRTECHWORKS_LIBRARY_EXTRA = [
       "backward compatibility",
       "windows",
       "gaming"
+    ],
+    "subjects": [
+      "gaming",
+      "software"
     ]
   },
   {
@@ -75,6 +93,10 @@ window.MRTECHWORKS_LIBRARY_EXTRA = [
       "switch 2",
       "sales",
       "consoles"
+    ],
+    "subjects": [
+      "gaming",
+      "hardware"
     ]
   },
   {
@@ -90,6 +112,11 @@ window.MRTECHWORKS_LIBRARY_EXTRA = [
       "internet",
       "outlook",
       "device"
+    ],
+    "subjects": [
+      "support",
+      "networking",
+      "cloud"
     ]
   }
 ];
