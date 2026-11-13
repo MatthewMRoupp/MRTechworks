@@ -5,8 +5,7 @@
     const items = [
       {href:'/news/',label:'Tech News'},
       {href:'/articles/',label:'Articles'},
-      {href:'/projects/',label:'Projects'},
-      {href:'/certifications/',label:'Certifications'}
+      {href:'/projects/',label:'Projects'}
     ];
     const li=document.createElement('li');
     li.className='nav-dropdown nav-resources';
@@ -27,6 +26,29 @@
         if(existing.getAttribute('href')===href) existing.closest('li').remove();
       });
     });
+    // Certifications is part of About, not the general Resources menu.
+    const aboutDetails = Array.from(list.querySelectorAll('.nav-dropdown details')).find(
+      (entry) => entry.querySelector('.nav-dropdown-menu a[href="/about/"]')
+    );
+    if (aboutDetails) {
+      const aboutMenu = aboutDetails.querySelector('.nav-dropdown-menu');
+      let certificateLink = aboutMenu.querySelector('a[href="/certifications/"]');
+      if (!certificateLink) {
+        certificateLink = document.createElement('a');
+        certificateLink.href = '/certifications/';
+        certificateLink.textContent = 'Certifications & Training';
+        const contactLink = aboutMenu.querySelector('a[href="/contact/"]');
+        if (contactLink) aboutMenu.insertBefore(certificateLink, contactLink);
+        else aboutMenu.append(certificateLink);
+      }
+      if (location.pathname.startsWith('/certifications/')) {
+        certificateLink.setAttribute('aria-current', 'page');
+        aboutDetails.classList.add('nav-current');
+      }
+      list.querySelectorAll(':scope > li > a[href="/certifications/"]').forEach(
+        (link) => link.closest('li').remove()
+      );
+    }
     details.append(summary,menu);li.append(details);
     const about=list.querySelector('.nav-dropdown');
     if(about)list.insertBefore(li,about);else list.append(li);
