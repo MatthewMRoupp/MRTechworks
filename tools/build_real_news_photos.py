@@ -80,6 +80,25 @@ TOPICS = [
  ("lenovo-thinkpad", "Lenovo ThinkPad laptop", 2, "Brands / Lenovo"),
 ]
 assert sum(target for _, _, target, _ in TOPICS) == TARGET
+
+# Individually identified Wikimedia Commons source pages from the earlier news
+# photography research; still recheck original metadata before downloading.
+EXACT_SEEDS = [
+ ("Steam machine front.jpg", "steam-machine-front", "Gaming / Steam"),
+ ("Steam machine back.jpg", "steam-machine-rear", "Gaming / Steam"),
+ ("Xbox Series X (July 8, 2026).jpg", "xbox-series-x-2026", "Gaming / Xbox"),
+ ("Xbox Series S (July 8, 2026).jpg", "xbox-series-s-2026", "Gaming / Xbox"),
+ ("Playstation 5.jpg", "playstation-5", "Gaming / PlayStation"),
+ ("Playstation 5 DualSense controller in Midnight Black, 2026-02-07 (front).jpg", "dualsense-2026", "Gaming / PlayStation"),
+ ("PlayStation Portal.jpg", "playstation-portal", "Gaming / PlayStation"),
+ ("Nintendo Switch 2 console in handheld mode.png", "switch-2-handheld", "Gaming / Nintendo"),
+ ("Nintendo Switch 2 release in NYC 184.jpg", "switch-2-launch", "Gaming / Nintendo"),
+ ("Steam Deck OLED framsida hemskärm.jpg", "steam-deck-oled", "Gaming / Steam"),
+ ("Steam Frame front 1.jpg", "steam-frame", "Gaming / Steam"),
+ ("InclusiveGameLab Current Console Generation CC-BY-SA.jpg", "console-comparison", "Gaming / Comparison"),
+ ("Nintendo Switch 2 release in NYC 59.jpg", "switch-2-launch-event", "Gaming / Nintendo"),
+]
+
 # Additional searches can fill topical gaps; never relabel images as the item
 # in the desired category if the source filename clearly portrays another device.
 FALLBACKS = [
@@ -341,6 +360,62 @@ def build(out_dir, target):
             print(f"  [{len(records):03d}/{target}] {file_name}: {photo['license']} / {photo['creditTo'][:60]}", flush=True)
         log.append({"topic": slug, "query": query, "target": desired, "acquired": successes})
         return successes
+
+
+    # Seed the collection with relevant real gaming hardware and launch photos
+    # rather than relying entirely on fuzzy search relevance.
+    seed_titles = [ "File:" + name for name, _, _ in EXACT_SEEDS ]
+    response = request_json(session, {
+        "action": "query", "prop": "imageinfo",
+        "iiprop": "url|size|mime|extmetadata", "iiurlwidth": 1480,
+        "titles": "|".join(seed_titles),
+        "format": "json", "formatversion": 2,
+    }) or {}
+    seed_pages = {p.get("title","").removeprefix("File:"): p
+                  for p in ((response.get("query") or {}).get("pages") or [])}
+    for name, key, category in EXACT_SEEDS:
+        page = seed_pages.get(name)
+        if not page:
+            continue
+        photo = validate_file(page)
+        if not photo or photo["sourceUrl"] in seen_source:
+            continue
+        raw = download_image(session, photo["photoUrl"])
+        if not raw:
+            continue
+        transformed = photo_to_webp(raw)
+        if not transformed:
+            continue
+        webp, modification = transformed
+        fingerprint = hashlib.sha256(webp).hexdigest()
+        if fingerprint in seen_bytes:
+            continue
+        seen_source.add(photo["sourceUrl"])
+        seen_bytes.add(fingerprint)
+        file_name = "news-photo-featured-" + key + ".webp"
+        (photo_dir / file_name).write_bytes(webp)
+        records.append({
+            "filename": file_name,
+            "path": "/assets/images/article-library/real-photos/" + file_name,
+            "type": "real photograph",
+            "subject": key.replace("-", " "),
+            "category": category,
+            "title": photo["title"].rsplit(".",1)[0].replace("_"," "),
+            "alt": key.replace("-", " ") + " (actual hardware/event photograph)",
+            "creditTo": photo["creditTo"],
+            "creditLine": f'Photo: {photo["creditTo"]} / Wikimedia Commons ({photo["license"]}; resized for MR Techworks)',
+            "license": photo["license"],
+            "licenseUrl": photo["licenseUrl"],
+            "derivativeLicense": photo["license"],
+            "sourceUrl": photo["sourceUrl"],
+            "sourceOriginal": photo["photoUrl"],
+            "modified": modification,
+            "sha256": fingerprint,
+            "sourceDimensions": [photo["width"], photo["height"]],
+            "editorialReviewRequired": True,
+            "noBrandEndorsement": True
+        })
+        print(f"  [SEED {len(records):03d}/{target}] {file_name}: {photo['creditTo'][:60]}", flush=True)
 
     for slug, query, desired, category in TOPICS:
         got = collect(slug, query, desired, category)
