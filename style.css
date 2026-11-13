@@ -1356,10 +1356,15 @@ button.text-link:focus-visible {
 .site-nav a {min-height:44px;display:inline-flex;align-items:center;}
 .card h3 {overflow-wrap:anywhere;}
 
-/* Seasonal homepage: Seasonal banner points to uploaded asset mrtechworks-holiday-2026(1).webp. */
-/* Original homeimage.webp remains underneath as a safe fallback and for post-holiday restoration. */
-/* Glassblower banner graphic overlays the holiday hero without replacing the original WebP. */
-.hero-background {background-image:url("/assets/images/gaffer-glassblower-overlay.svg"),linear-gradient(90deg,rgba(7,17,31,.80),rgba(7,17,31,.35) 60%,rgba(7,17,31,.10)),url("/assets/images/mrtechworks-holiday-2026(1).webp"),url("/assets/images/homeimage.webp");}
+/* Seasonal homepage image: Corning-inspired Christmas Market Street and technology.
+   The original homepage artwork stays available for a post-holiday switchback.
+   Gentle gradient protects the left-aligned heading without hiding the full scene. */
+.hero-background {
+  background-image:
+    linear-gradient(90deg, rgba(7,17,31,.66) 0%, rgba(7,17,31,.32) 42%, rgba(7,17,31,.03) 82%),
+    url("/assets/images/file_00000000aa6c81f59ecb8af2151191c6.png"),
+    url("/assets/images/homeimage.webp");
+}
 
 /* Pricing estimates remain readable on narrow screens. */
 .estimate-table-wrap {overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius-sm);}
