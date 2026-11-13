@@ -1,0 +1,78 @@
+name: Build Licensed Real News Photo Library
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - tools/build_real_news_photos.py
+      - .github/workflows/build-real-news-photos.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  licensed-photos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - name: Check out latest website source
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configure Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install image conversion dependencies
+        run: python -m pip install --disable-pip-version-check "Pillow>=10,<13" "requests>=2.31,<3"
+
+      - name: Download and license-check actual Commons photographs
+        id: build
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          python -u tools/build_real_news_photos.py --target 99 --output real-photo-output 2>&1 | tee real-photo-build.log
+
+      - name: Upload actual photo ZIP and source-rights metadata
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: MRTechworks-Real-News-Photography-${{ github.run_id }}
+          path: |
+            real-photo-output/MRTechworks_Real_News_Photos_Upload.zip
+            real-photo-output/BUILD_REPORT.json
+            real-photo-build.log
+          if-no-files-found: warn
+          retention-days: 90
+
+      - name: Stage photos on separate branch only when exactly 99 were verified
+        if: steps.build.outcome == 'success'
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          with open("real-photo-output/BUILD_REPORT.json", encoding="utf-8") as f:
+              report = json.load(f)
+          if report["acquired"] != 99 or not report["allLicenseChecked"]:
+              raise SystemExit("Refusing to stage photos without exactly 99 CC-licensed files")
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c assets/real-news-photography-99
+          mkdir -p assets/images/article-library/real-photos assets/data
+          cp -a real-photo-output/assets/images/article-library/real-photos/. assets/images/article-library/real-photos/
+          cp real-photo-output/assets/data/image-credits.json assets/data/image-credits.json
+          cp real-photo-output/assets/data/real-news-photo-credits.json assets/data/real-news-photo-credits.json
+          cp real-photo-output/NEWS_PHOTO_CREDITS.csv real-photo-output/NEWS_PHOTO_RIGHTS.md real-photo-output/PHOTO_REVIEW.html .
+          git add assets/images/article-library/real-photos assets/data/image-credits.json assets/data/real-news-photo-credits.json NEWS_PHOTO_CREDITS.csv NEWS_PHOTO_RIGHTS.md PHOTO_REVIEW.html
+          git commit -m "Stage 99 genuine Commons photographs with source and Creative Commons credit records"
+          git push origin HEAD:refs/heads/assets/real-news-photography-99
+
+      - name: Flag an incomplete photo collection
+        if: steps.build.outcome != 'success'
+        run: |
+          echo "::warning::Not all 99 photos passed licensing and download checks. The report/artifact includes only genuine downloaded images; no placeholders were invented."
