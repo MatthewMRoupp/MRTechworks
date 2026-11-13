@@ -1,9 +1,9 @@
 {
   "active": true,
-  "title": "Microsoft 365 service disruption",
+  "title": "Microsoft 365 recovery update",
   "level": "warning",
-  "message": "Microsoft reports ongoing disruption affecting Outlook, Exchange Online and other Microsoft 365 services. Some users may experience mailbox access or email delivery delays. Recovery is progressing; local impact varies. Updated November 13, 2026.",
-  "observedAt": "2026-11-13T12:26:00-05:00",
+  "message": "Microsoft says the underlying issue behind the global Microsoft 365 disruption has been addressed and services are broadly recovering. Outlook and Exchange Online access and email delivery may still be delayed for some customers and regions. No specific Corning/Elmira outage is confirmed. Updated Nov. 13, 2026, 2:12 PM ET.",
+  "observedAt": "2026-11-13T14:12:00-05:00",
   "expiresAt": "2026-11-13T19:00:00-05:00",
   "url": "https://status.cloud.microsoft/"
 }
