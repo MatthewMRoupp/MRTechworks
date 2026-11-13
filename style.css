@@ -1518,3 +1518,14 @@ main > .page-hero + .section { padding-top: clamp(2.25rem,4vw,3.25rem); }
   .page-hero .button-group .btn { flex: 1 1 100%; }
   .page-hero .badge-list { gap: .5rem; }
 }
+/* ===== Secondary CTA and article library spacing ===== */
+.page-hero .hero-secondary-link {
+  display: inline-flex;
+  margin-top: 1rem;
+}
+.article-search-section { padding-bottom: 1rem; }
+.article-results-section { padding-top: 1rem; }
+@media (max-width: 560px) {
+  .article-search-section { padding-bottom: .75rem; }
+  .article-results-section { padding-top: .75rem; }
+}
