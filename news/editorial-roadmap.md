@@ -11,7 +11,7 @@ Last reviewed: November 13, 2026. This is an editorial planning inventory, not a
 | Info / Help Articles | 40 | 14 | 26 |
 | **Total** | **100** | **19** | **81** |
 
-The existing Microsoft outage story is included under Tech News. Existing evergreen guides are included under Info / Help rather than duplicated.
+The existing Microsoft outage story is included under Tech News. Existing evergreen guides are included under Info / Help rather than duplicated. All 19 published articles are indexed together at /articles/. The guide metadata lives in /assets/js/article-data.js; editorial news and the standalone outage guide are indexed from /assets/js/library-data.js.
 
 ## Editorial policy
 
