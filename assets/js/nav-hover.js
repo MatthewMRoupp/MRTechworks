@@ -93,3 +93,13 @@
     inner.append(content,close);bar.append(inner);header.insertAdjacentElement("afterend",bar);
   }).catch(()=>{});
 })();
+
+/* Load optional image credits only when approved asset-library images are present.
+ * The existing live articles keep using their current images until upload is verified. */
+(() => {
+  if (!document.querySelector('article img[src^="/assets/images/article-library/"]')) return;
+  const script = document.createElement("script");
+  script.src = "/assets/js/asset-credit-lookup.js";
+  script.defer = true;
+  document.head.appendChild(script);
+})();
