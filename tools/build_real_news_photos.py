@@ -136,7 +136,7 @@ BANNED_FILENAME_TERMS = (
  "gameplay", "title screen", "boxart", "box art", "icon", "emblem",
 )
 ACCEPTABLE_LICENSE = re.compile(r"^(CC BY(?:-SA)? (?:2\.0|2\.5|3\.0|4\.0)|CC0 1\.0)$", re.I)
-SAFE_LICENSE_URL = re.compile(r"^https://creativecommons\.org/(?:licenses/(?:by|by-sa)/(?:2\.0|2\.5|3\.0|4\.0)/|publicdomain/zero/1\.0/)", re.I)
+SAFE_LICENSE_URL = re.compile(r"^https://creativecommons\.org/(?:licenses/(?:by|by-sa)/(?:2\.0|2\.5|3\.0|4\.0)|publicdomain/zero/1\.0)(?:/|$)", re.I)
 PHOTO_EXTENSIONS = (".jpg", ".jpeg", ".png", ".webp")
 
 class HTMLToText(HTMLParser):
@@ -157,6 +157,10 @@ def metadata_value(metadata, key):
 def normalize_license(value, url):
     label = " ".join(value.split()).replace("Creative Commons ", "").strip()
     url = str(url or "").replace("http://", "https://")
+    # Commons legitimately reports "CC0" and omits trailing URL slashes.
+    # Verify the explicit public-domain dedication URL, not the label alone.
+    if label.upper() == "CC0" and "/publicdomain/zero/1.0" in url:
+        label = "CC0 1.0"
     if not ACCEPTABLE_LICENSE.fullmatch(label):
         return None
     if not SAFE_LICENSE_URL.match(url):
