@@ -1381,3 +1381,57 @@ button.text-link:focus-visible {
 
 /* Keep a continuous pointer path from About to its hover submenu. */
 .site-nav .nav-dropdown-menu{top:100%;}
+
+/* ===== Homepage hero action spacing and mobile layout ===== */
+/* Keep the main contact actions together and the pricing link on its own line. */
+.hero-home .hero-grid {
+  grid-template-columns: minmax(0, 660px) minmax(0, 1fr);
+}
+.hero-home .hero-copy {
+  min-width: 0;
+  max-width: 660px;
+}
+.hero-home .hero-copy .eyebrow {
+  margin-bottom: 0.65rem;
+}
+.hero-home .hero-copy h1 {
+  margin-bottom: 0.8rem;
+}
+.hero-home .hero-copy .lead {
+  margin-bottom: 1.3rem;
+}
+.hero-home .hero-actions {
+  align-items: stretch;
+  column-gap: 0.85rem;
+  row-gap: 0.8rem;
+}
+.hero-home .hero-actions .btn {
+  min-height: 50px;
+}
+.hero-home .hero-pricing-link {
+  display: inline-flex;
+  margin-top: 1rem;
+}
+.hero-home .service-note {
+  max-width: 620px;
+  margin: 1.25rem 0 0;
+  line-height: 1.55;
+}
+/* Avoid squeezing the homepage copy into half a column on smaller laptops. */
+@media (max-width: 1040px) {
+  .hero-home .hero-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 560px) {
+  .hero-home .hero-actions {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .hero-home .hero-actions .btn {
+    width: 100%;
+  }
+  .hero-home .service-note {
+    padding: 0.9rem 1rem;
+  }
+}
