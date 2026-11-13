@@ -1,0 +1,43 @@
+name: Verify Article Covers
+
+on:
+  pull_request:
+    paths:
+      - 'assets/js/articles.js'
+      - 'assets/js/article-data.js'
+      - 'assets/js/library-data.js'
+      - 'assets/images/**'
+      - 'articles/**'
+      - 'gaming-news/**'
+      - 'news/**'
+      - 'tests/verify-article-covers.cjs'
+      - '.github/workflows/verify-article-covers.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'assets/js/articles.js'
+      - 'assets/js/article-data.js'
+      - 'assets/js/library-data.js'
+      - 'assets/images/**'
+      - 'articles/**'
+      - 'gaming-news/**'
+      - 'news/**'
+      - 'tests/verify-article-covers.cjs'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  covers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check library JavaScript syntax
+        run: node --check assets/js/articles.js
+      - name: Verify all article images, routes and alt text
+        run: node tests/verify-article-covers.cjs
