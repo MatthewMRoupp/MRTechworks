@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1672 941" width="1672" height="941">
+ <defs>
+  <linearGradient id="fabric" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#071528"/><stop offset="0.30" stop-color="#0c203a"/><stop offset="0.75" stop-color="#122440"/><stop offset="1" stop-color="#08182c"/>
+  </linearGradient>
+  <radialGradient id="glass"><stop offset="0" stop-color="#fff7c4"/><stop offset="0.35" stop-color="#ffcf4c"/><stop offset="0.73" stop-color="#f88118"/><stop offset="1" stop-color="#f47720" stop-opacity=".18"/></radialGradient>
+ </defs>
+ <!-- Correct the inaccurate banner illustration; preserve the pole, wreath, and downtown. -->
+ <path d="M979 137 L1084 139 L1085 338 L979 340 Z" fill="url(#fabric)" stroke="#1c2b45" stroke-width="2"/>
+ <path d="M987 143 L1076 145" stroke="#24374f" stroke-width="1" opacity=".8"/>
+ <!-- Stylized glassblower using a blowpipe. -->
+ <g fill="#e9d1aa" stroke="#e9d1aa" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M1000 208 Q999 194 1006 188 Q1013 186 1019 197 L1022 225 L998 225 Z" stroke="none"/>
+  <circle cx="1009" cy="176" r="8" stroke="none"/>
+  <path d="M1008 177 L1021 180" stroke-width="5" fill="none"/>
+  <path d="M1015 198 L1027 185 L1036 185" stroke-width="5" fill="none"/>
+  <path d="M1011 203 L1028 190 L1037 190" stroke-width="4" fill="none"/>
+  <path d="M1019 180 L1053 181" stroke-width="2.5" fill="none"/>
+ </g>
+ <circle cx="1057" cy="181" r="7" fill="url(#glass)" stroke="#ffca61" stroke-width="1"/>
+ <g fill="#f3e5ca" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif">
+  <text x="1031" y="252" font-size="16.9" letter-spacing=".2">GAFFER</text>
+  <text x="1031" y="272" font-size="16" letter-spacing=".1">DISTRICT</text>
+  <path d="M996 281 H1066" stroke="#b19b77" stroke-width=".7"/>
+  <text x="1031" y="301" font-size="10" letter-spacing=".6">CORNING</text>
+  <text x="1031" y="315" font-size="9.6" letter-spacing=".6">NEW YORK</text>
+ </g>
+</svg>
