@@ -1435,3 +1435,10 @@ button.text-link:focus-visible {
     padding: 0.9rem 1rem;
   }
 }
+
+/* Social update link on the homepage guides section. */
+.social-follow-note {
+  margin: 1.25rem 0 0;
+  max-width: 60ch;
+  color: var(--text-muted);
+}
