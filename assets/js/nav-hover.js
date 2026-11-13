@@ -1,5 +1,39 @@
-/* Open the existing native About details menu on desktop hover.
-   Native click/tap and keyboard activation still work without JavaScript. */
+/* Consolidate site navigation without editing individual page headers. */
+(() => {
+  document.querySelectorAll('.site-nav > ul').forEach((list) => {
+    if (list.querySelector('[data-resources-menu]')) return;
+    const items = [
+      {href:'/news/',label:'Tech News'},
+      {href:'/articles/',label:'Articles'},
+      {href:'/projects/',label:'Projects'},
+      {href:'/certifications/',label:'Certifications'}
+    ];
+    const li=document.createElement('li');
+    li.className='nav-dropdown nav-resources';
+    li.dataset.resourcesMenu='true';
+    const details=document.createElement('details');
+    const summary=document.createElement('summary');
+    summary.append(document.createTextNode('Resources '));
+    const chevron=document.createElement('span');
+    chevron.className='nav-chevron';chevron.setAttribute('aria-hidden','true');
+    summary.append(chevron);
+    const menu=document.createElement('div');
+    menu.className='nav-dropdown-menu';
+    items.forEach(({href,label})=>{
+      const link=document.createElement('a');link.href=href;link.textContent=label;
+      if(location.pathname.startsWith(href)) {link.setAttribute('aria-current','page');li.classList.add('nav-current');}
+      menu.append(link);
+      list.querySelectorAll('li > a').forEach(existing=>{
+        if(existing.getAttribute('href')===href) existing.closest('li').remove();
+      });
+    });
+    details.append(summary,menu);li.append(details);
+    const about=list.querySelector('.nav-dropdown');
+    if(about)list.insertBefore(li,about);else list.append(li);
+  });
+})();
+
+/* Desktop hover support; native details remains keyboard/touch accessible. */
 (() => {
   if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
   document.querySelectorAll('.site-nav .nav-dropdown details').forEach((menu) => {
@@ -11,27 +45,13 @@
       if (!menu.contains(event.relatedTarget) && !menu.matches(':hover')) menu.open = false;
     });
     menu.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape') {
-        menu.open = false;
-        menu.querySelector('summary')?.focus();
-      }
+      if (event.key === 'Escape') { menu.open = false; menu.querySelector('summary')?.focus(); }
     });
   });
 })();
 
 /* Common News nav and time-limited alert from the news/alert.json record. */
 (() => {
-  document.querySelectorAll(".site-nav ul").forEach((list) => {
-    if (list.querySelector('a[href="/news/"]')) return;
-    const articleLink = list.querySelector('a[href="/articles/"]');
-    if (!articleLink) return;
-    const li = document.createElement("li");
-    const link = document.createElement("a");
-    link.href = "/news/"; link.textContent = "Tech News";
-    if (location.pathname.startsWith("/news/")) link.setAttribute("aria-current","page");
-    li.append(link);
-    list.insertBefore(li,articleLink.closest("li"));
-  });
   const header=document.querySelector(".site-header");
   if (!header) return;
   fetch("/news/alert.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(a=>{

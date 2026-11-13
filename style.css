@@ -1544,3 +1544,21 @@ main > .page-hero + .section { padding-top: clamp(2.25rem,4vw,3.25rem); }
 .site-service-alert-close{background:transparent;color:#fff;border:1px solid #b9d9ed;border-radius:8px;cursor:pointer;padding:.5rem .75rem;}
 .site-service-alert-close:focus-visible{outline:3px solid #fff;outline-offset:3px;}
 @media(max-width:820px){.news-grid{grid-template-columns:1fr;}.site-service-alert-inner{align-items:flex-start;}}
+
+/* Compact, single-row desktop navigation with grouped Resources menu. */
+@media (min-width: 821px) {
+  .site-nav > ul { flex-wrap: nowrap; gap: .2rem; }
+  .site-nav > ul > li { flex: 0 0 auto; }
+  .site-nav > ul > li > a, .site-nav > ul > li > details > summary {
+    white-space: nowrap; padding-inline: .65rem;
+  }
+  .site-brand { flex-shrink: 0; }
+  .header-inner { gap: .75rem; }
+}
+@media (max-width: 820px) {
+  .site-nav > ul { gap: .2rem; }
+}
+.site-nav .nav-resources .nav-dropdown-menu { left: 0; right: auto; }
+@media (max-width: 560px) {
+  .site-nav .nav-resources .nav-dropdown-menu { left: auto; right: 0; }
+}
