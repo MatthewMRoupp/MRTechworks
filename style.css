@@ -1451,7 +1451,7 @@ button.text-link:focus-visible {
   position: relative;
   min-height: clamp(440px, 52vh, 540px);
   padding: clamp(1.3rem, 2.5vw, 2.1rem) 0 2.2rem;
-  background-position: center 52%;
+  background-position: center bottom; /* Favor the monitor, keyboard and AI disclosure when wide layouts crop vertically. */
 }
 .hero-home .hero-copy {
   padding: clamp(1.1rem, 2vw, 1.5rem) clamp(1.15rem, 2.4vw, 1.75rem);
@@ -1513,7 +1513,7 @@ button.text-link:focus-visible {
   .hero-home.hero-background {
     min-height: 0;
     padding: 1.4rem 0 2.6rem;
-    background-position: 62% center;
+    background-position: 72% center; /* On narrow screens, favor a bit more of the storefront and PC. */
   }
   .hero-home .hero-copy {
     padding: 1.2rem;
