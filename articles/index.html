@@ -55,16 +55,39 @@
 <button class="library-filter" type="button" data-library-category="gaming" aria-pressed="false">Gaming News <span id="libraryGamingCount">3</span></button>
 <button class="library-filter" type="button" data-library-category="help" aria-pressed="false">Info &amp; Help <span id="libraryHelpCount">14</span></button>
 </div>
-<div class="library-options">
-<div><label for="topicSelect">Topic</label><select id="topicSelect"><option value="all">All topics</option></select></div>
-<div><label for="sortSelect">Sort by</label><select id="sortSelect"><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="title">Title A–Z</option></select></div>
+<details id="libraryAdvanced" class="library-advanced">
+<summary><span>Advanced Search</span><span id="libraryAdvancedStatus" class="library-advanced-status" hidden>Filters active</span></summary>
+<div class="library-advanced-panel">
+<p class="library-advanced-hint">Refine results using article titles, descriptions, topics, tags, and indexed guide content. Words can appear in any order.</p>
+<div class="library-advanced-grid">
+<div class="library-control"><label for="requiredWords">Must include all words</label><input id="requiredWords" type="text" placeholder="Example: windows update" autocomplete="off"/></div>
+<div class="library-control"><label for="anyWords">Include any of these words</label><input id="anyWords" type="text" placeholder="Example: laptop desktop" autocomplete="off"/></div>
+<div class="library-control"><label for="exactPhrase">Exact phrase</label><input id="exactPhrase" type="text" placeholder="Example: cloud gaming" autocomplete="off"/></div>
+<div class="library-control"><label for="excludedWords">Doesn't include these words</label><input id="excludedWords" type="text" placeholder="Example: xbox nintendo" autocomplete="off"/></div>
 </div>
-<p id="articleCount" class="article-count text-muted" aria-live="polite">Browse published articles below.</p>
+<div class="library-advanced-grid">
+<div class="library-control"><label for="subjectSelect">Subject area</label><select id="subjectSelect"><option value="all">All subject areas</option></select></div>
+<div class="library-control"><label for="topicSelect">Specific topic</label><select id="topicSelect"><option value="all">All topics</option></select></div>
+<div class="library-control"><label for="sortSelect">Sort results</label><select id="sortSelect"><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="title">Title A–Z</option></select></div>
+</div>
+<fieldset class="library-date-fieldset"><legend>Publication / last-updated date range</legend>
+<div class="library-date-grid">
+<div class="library-control"><label for="dateFrom">From</label><input id="dateFrom" type="date"/></div>
+<div class="library-control"><label for="dateTo">Through</label><input id="dateTo" type="date"/></div>
+</div>
+<p class="library-field-hint">Both dates are inclusive. Help guides use their last-updated date; news uses its publication date, not the original event date.</p>
+<p id="libraryDateError" class="library-range-error" role="status" hidden>The start date must be on or before the end date.</p>
+</fieldset>
+<div class="library-advanced-actions"><button id="clearAdvanced" type="button" class="library-clear-btn">Clear advanced filters</button></div>
+</div>
+</details>
+<div class="library-results-bar"><p id="articleCount" class="article-count text-muted" aria-live="polite">Browse published articles below.</p><button id="resetLibrary" type="button" class="library-reset-btn">Reset all</button>
+</div>
 </div></section>
 <section class="section article-results-section" aria-label="Matching articles">
 <div class="container article-grid library-grid" id="articleResults">
 <article class="article-card"><div class="article-card-body"><h2>Explore the articles</h2><p>Use the filters above, or visit <a href="/news/">Tech News</a>, <a href="/gaming-news/">Gaming News</a>, and <a href="/articles/home-wifi-basics/">our help guides</a>.</p></div></article>
-</div></section>
+</div><div class="container library-more-row"><button id="libraryMore" type="button" class="library-more-btn" hidden>Load more articles</button></div></section>
 <section class="section section-alt section-tight"><div class="container narrow"><h2>Need help with something specific?</h2>
 <p>This library grows with important technology developments and practical answers. You can also <a href="/contact/">contact MR Techworks</a> for assistance.</p></div></section>
 </main>
