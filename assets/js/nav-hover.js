@@ -4,7 +4,8 @@
     if (list.querySelector('[data-resources-menu]')) return;
     const items = [
       {href:'/news/',label:'Tech News'},
-      {href:'/articles/',label:'Articles'},
+      {href:'/gaming-news/',label:'Gaming News'},
+      {href:'/articles/',label:'Help Articles'},
       {href:'/projects/',label:'Projects'}
     ];
     const li=document.createElement('li');
