@@ -1,0 +1,57 @@
+name: Curate Real Photo Library
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - tools/curate_real_news_photos.py
+      - .github/workflows/curate-real-news-photos.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  curate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Check out staging branch with real photographs
+        uses: actions/checkout@v4
+        with:
+          ref: assets/real-news-photography-99
+          fetch-depth: 0
+
+      - name: Retrieve curation script from main
+        shell: bash
+        run: |
+          git fetch origin main
+          git show origin/main:tools/curate_real_news_photos.py > tools/curate_real_news_photos.py
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: python -m pip install --disable-pip-version-check "Pillow>=10,<13" "requests>=2.31,<3"
+
+      - name: Replace mismatched photos and validate 99 source records
+        run: python -u tools/curate_real_news_photos.py
+
+      - name: Upload final curated ZIP
+        uses: actions/upload-artifact@v4
+        with:
+          name: MRTechworks-Curated-Real-News-Photos-99-${{ github.run_id }}
+          path: curated-photo-output/MRTechworks_99_Curated_Real_News_Photos.zip
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Update non-production photo branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/images/article-library/real-photos assets/data/image-credits.json assets/data/real-news-photo-credits.json NEWS_PHOTO_CREDITS.csv NEWS_PHOTO_RIGHTS.md PHOTO_REVIEW.html
+          git commit -m "Curate 99 real photos and correct product names and copyright records"
+          git push origin HEAD:refs/heads/assets/real-news-photography-99
