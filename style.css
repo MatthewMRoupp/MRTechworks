@@ -1358,7 +1358,8 @@ button.text-link:focus-visible {
 
 /* Seasonal homepage: Seasonal banner points to uploaded asset mrtechworks-holiday-2026(1).webp. */
 /* Original homeimage.webp remains underneath as a safe fallback and for post-holiday restoration. */
-.hero-background {background-image:linear-gradient(90deg,rgba(7,17,31,.80),rgba(7,17,31,.35) 60%,rgba(7,17,31,.10)),url("/assets/images/mrtechworks-holiday-2026(1).webp"),url("/assets/images/homeimage.webp");}
+/* Glassblower banner graphic overlays the holiday hero without replacing the original WebP. */
+.hero-background {background-image:url("/assets/images/gaffer-glassblower-overlay.svg"),linear-gradient(90deg,rgba(7,17,31,.80),rgba(7,17,31,.35) 60%,rgba(7,17,31,.10)),url("/assets/images/mrtechworks-holiday-2026(1).webp"),url("/assets/images/homeimage.webp");}
 
 /* Pricing estimates remain readable on narrow screens. */
 .estimate-table-wrap {overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius-sm);}
