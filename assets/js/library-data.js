@@ -22,7 +22,9 @@ window.MRTECHWORKS_LIBRARY_EXTRA = [
       "software",
       "security",
       "support"
-    ]
+    ],
+    "image": "/assets/images/office-desktop-computer.jpg",
+    "imageAlt": "Desktop computer in a workspace; illustrative photo for Windows 10 support"
   },
   {
     "group": "tech",
@@ -43,7 +45,9 @@ window.MRTECHWORKS_LIBRARY_EXTRA = [
       "software",
       "security",
       "support"
-    ]
+    ],
+    "image": "/assets/images/laptop.jpg",
+    "imageAlt": "Laptop in a workspace; illustrative photo for Windows updates"
   },
   {
     "group": "gaming",
@@ -64,7 +68,9 @@ window.MRTECHWORKS_LIBRARY_EXTRA = [
       "gaming",
       "hardware",
       "software"
-    ]
+    ],
+    "image": "/assets/images/desktop-gaming.jpg",
+    "imageAlt": "Desktop gaming setup; illustrative photo, not Valve Steam Machine hardware"
   },
   {
     "group": "gaming",
@@ -84,7 +90,9 @@ window.MRTECHWORKS_LIBRARY_EXTRA = [
     "subjects": [
       "gaming",
       "hardware"
-    ]
+    ],
+    "image": "/assets/images/hero-tech-long.webp",
+    "imageAlt": "Abstract technology illustration; not Nintendo Switch 2 hardware"
   },
   {
     "group": "help",
@@ -105,7 +113,9 @@ window.MRTECHWORKS_LIBRARY_EXTRA = [
       "data",
       "security",
       "support"
-    ]
+    ],
+    "image": "/assets/images/network-security-lock.jpg",
+    "imageAlt": "Lock and computer security imagery illustrating disk encryption"
   },
   {
     "group": "help",
@@ -127,7 +137,9 @@ window.MRTECHWORKS_LIBRARY_EXTRA = [
       "hardware",
       "support",
       "data"
-    ]
+    ],
+    "image": "/assets/images/hdd-ssd-m2-storage-devices.jpg",
+    "imageAlt": "Comparison of hard drives and solid-state storage devices"
   },
   {
     "group": "help",
@@ -148,7 +160,9 @@ window.MRTECHWORKS_LIBRARY_EXTRA = [
       "software",
       "support",
       "data"
-    ]
+    ],
+    "image": "/assets/images/laptop-repair.jpg",
+    "imageAlt": "Laptop being serviced on a workbench"
   },
   {
     "group": "help",
@@ -170,7 +184,9 @@ window.MRTECHWORKS_LIBRARY_EXTRA = [
       "hardware",
       "data",
       "support"
-    ]
+    ],
+    "image": "/assets/images/external-storage-drives.webp",
+    "imageAlt": "External storage drives and backup hardware"
   },
   {
     "group": "tech",
@@ -190,7 +206,9 @@ window.MRTECHWORKS_LIBRARY_EXTRA = [
       "ai",
       "hardware",
       "industry"
-    ]
+    ],
+    "image": "/assets/images/desktop-upgrade-repair.jpg",
+    "imageAlt": "Computer hardware undergoing service; illustrative image for semiconductor industry news"
   },
   {
     "group": "tech",
@@ -211,7 +229,9 @@ window.MRTECHWORKS_LIBRARY_EXTRA = [
       "cloud",
       "software",
       "support"
-    ]
+    ],
+    "image": "/assets/images/showing-someone-support-in-person.jpg",
+    "imageAlt": "Computer support demonstration; illustrative image for Microsoft 365 service disruptions"
   },
   {
     "group": "gaming",
@@ -229,7 +249,9 @@ window.MRTECHWORKS_LIBRARY_EXTRA = [
     ],
     "subjects": [
       "gaming"
-    ]
+    ],
+    "image": "/assets/images/gaming-computer.jpg",
+    "imageAlt": "PC gaming setup; illustrative image, not Grand Theft Auto VI gameplay"
   },
   {
     "group": "gaming",
@@ -248,7 +270,9 @@ window.MRTECHWORKS_LIBRARY_EXTRA = [
     "subjects": [
       "gaming",
       "software"
-    ]
+    ],
+    "image": "/assets/images/gaming-pc-build-parts.jpg",
+    "imageAlt": "PC gaming hardware; illustrative image for Xbox classics on Windows PCs"
   },
   {
     "group": "gaming",
@@ -266,7 +290,9 @@ window.MRTECHWORKS_LIBRARY_EXTRA = [
     "subjects": [
       "gaming",
       "hardware"
-    ]
+    ],
+    "image": "/assets/images/homeimage.webp",
+    "imageAlt": "Abstract technology illustration; not Nintendo Switch 2 product photography"
   },
   {
     "group": "help",
@@ -286,6 +312,8 @@ window.MRTECHWORKS_LIBRARY_EXTRA = [
       "support",
       "networking",
       "cloud"
-    ]
+    ],
+    "image": "/assets/images/wifi-routers.jpg",
+    "imageAlt": "Wireless networking equipment illustrating internet connectivity"
   }
 ];
