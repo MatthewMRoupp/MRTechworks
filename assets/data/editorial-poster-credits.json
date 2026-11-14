@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "collection": "MR Techworks original editorial poster artwork",
+  "created": "2026-11-14",
+  "license": "Original MR Techworks editorial artwork; not official game or product imagery",
+  "format": "SVG 1280x720",
+  "note": "Cover illustrations are not game screenshots or documentary images. In-article photos retain their separate Creative Commons credits. For Facebook/Open Graph, prefer a rasterized PNG or JPG version; SVG og:image support is limited.",
+  "posters": [
+    {
+      "path": "/assets/images/article-library/editorial-posters/wolfenstein-3.svg",
+      "title": "Wolfenstein 3",
+      "creator": "MR Techworks",
+      "credit": "Original editorial illustration: MR Techworks",
+      "aiDisclosure": "Original vector editorial artwork created with AI assistance",
+      "usage": "Cover art; do not represent as official promotional art"
+    },
+    {
+      "path": "/assets/images/article-library/editorial-posters/big-walk-ai.svg",
+      "title": "Big Walk AI discussion",
+      "creator": "MR Techworks",
+      "credit": "Original editorial illustration: MR Techworks",
+      "aiDisclosure": "Original vector editorial artwork created with AI assistance",
+      "usage": "Cover art; do not represent as official promotional art"
+    },
+    {
+      "path": "/assets/images/article-library/editorial-posters/ps5-qssr.svg",
+      "title": "PS5 QSSR",
+      "creator": "MR Techworks",
+      "credit": "Original editorial illustration: MR Techworks",
+      "aiDisclosure": "Original vector editorial artwork created with AI assistance",
+      "usage": "Cover art; do not represent as official promotional art"
+    },
+    {
+      "path": "/assets/images/article-library/editorial-posters/gta-vi-launch.svg",
+      "title": "GTA VI launch",
+      "creator": "MR Techworks",
+      "credit": "Original editorial illustration: MR Techworks",
+      "aiDisclosure": "Original vector editorial artwork created with AI assistance",
+      "usage": "Cover art; do not represent as official promotional art"
+    },
+    {
+      "path": "/assets/images/article-library/editorial-posters/microsoft-365-outage.svg",
+      "title": "Microsoft 365 outage",
+      "creator": "MR Techworks",
+      "credit": "Original editorial illustration: MR Techworks",
+      "aiDisclosure": "Original vector editorial artwork created with AI assistance",
+      "usage": "Cover art; do not represent as official promotional art"
+    },
+    {
+      "path": "/assets/images/article-library/editorial-posters/gemini-hydrogen.svg",
+      "title": "Gemini 4 Hydrogen",
+      "creator": "MR Techworks",
+      "credit": "Original editorial illustration: MR Techworks",
+      "aiDisclosure": "Original vector editorial artwork created with AI assistance",
+      "usage": "Cover art; do not represent as official promotional art"
+    },
+    {
+      "path": "/assets/images/article-library/editorial-posters/xbox-25-years.svg",
+      "title": "Xbox 25th anniversary",
+      "creator": "MR Techworks",
+      "credit": "Original editorial illustration: MR Techworks",
+      "aiDisclosure": "Original vector editorial artwork created with AI assistance",
+      "usage": "Cover art; do not represent as official promotional art"
+    }
+  ]
+}
