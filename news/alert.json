@@ -1,9 +1,9 @@
 {
-  "active": true,
-  "title": "Workday service disruption reported",
-  "level": "warning",
-  "message": "November 14, 2026: Workday experienced a widespread disruption affecting some organizations' payroll, time tracking and HR access beginning November 13. Restoration may vary by employer; check your organization's Workday or IT notices. No specific Corning/Elmira impact has been confirmed.",
-  "observedAt": "2026-11-14T09:33:00-05:00",
-  "expiresAt": "2026-11-14T12:33:00-05:00",
-  "url": "https://status.brown.edu/"
+  "active": false,
+  "title": "Workday service restored",
+  "level": "info",
+  "message": "November 14, 2026: Workday service was reported restored by 11:00 a.m. EST following the November 13 disruption affecting some organizations' HR, payroll and timekeeping access. If issues persist, contact your employer's IT or HR team. No specific Corning/Elmira impact was confirmed.",
+  "observedAt": "2026-11-14T14:34:00-05:00",
+  "expiresAt": "2026-11-14T14:34:00-05:00",
+  "url": "https://people.com/workday-suffers-outage-one-day-after-microsoft-faced-similar-disruption-12254513"
 }
