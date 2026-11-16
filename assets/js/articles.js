@@ -96,7 +96,7 @@
   // flat-path-only pattern rejected valid image URLs and caused repeated
   // fallback cover artwork across the Article Library.
   const validImage = url => typeof url === "string" &&
-    /^\/assets\/images\/(?:[a-z0-9][a-z0-9._-]*\/)*[a-z0-9][a-z0-9._-]*\.(?:avif|gif|jpe?g|png|webp)$/i.test(url);
+    /^\/assets\/images\/(?:[a-z0-9][a-z0-9._-]*\/)*[a-z0-9][a-z0-9._-]*\.(?:avif|gif|jpe?g|png|svg|webp)$/i.test(url);
 
   entries.forEach(item => {
     item.searchIndex = normalize([item.title,item.summary,item.topic,labels[item.group],
