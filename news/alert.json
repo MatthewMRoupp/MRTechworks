@@ -1,9 +1,9 @@
 {
-  "active": false,
-  "title": "Microsoft 365 service restored",
-  "level": "info",
-  "message": "Microsoft reported on November 14, 2026 that services were restored following the global Microsoft 365 disruption affecting Outlook, Exchange Online and Teams. This is a worldwide service recovery; no distinct Corning or Elmira outage was confirmed. If problems persist, check your organization's Microsoft 365 service health.",
-  "observedAt": "2026-11-14T06:29:00-05:00",
-  "expiresAt": "2026-11-14T06:29:00-05:00",
-  "url": "https://status.cloud.microsoft/"
+  "active": true,
+  "title": "US online banking disruptions reported",
+  "level": "warning",
+  "message": "Nov 16: Chase confirms a technical issue delaying some transactions. Customers also report access or payment problems at several major US banks; impacts vary by institution. No confirmed cyberattack or specific Corning–Elmira outage. Check your bank directly before retrying payments.",
+  "observedAt": "2026-11-16T15:08:00-05:00",
+  "expiresAt": "2026-11-16T23:08:00-05:00",
+  "url": "https://apnews.com/article/bank-outage-chase-wells-fargo-truist-50fee2693c22f597fa6ca51a97ef2cda"
 }
