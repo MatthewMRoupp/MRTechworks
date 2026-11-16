@@ -37,6 +37,14 @@ for (const article of all) {
   assert.ok(validImage(article.image), article.title + ": image rejected by card renderer: " + article.image);
   assert.ok(fs.existsSync(path.join(root, article.image.replace(/^\//,""))),
     article.title + ": image file doesn't exist: " + article.image);
+  // A path can exist while containing an invalid image (e.g. a 2-byte PNG).
+  const imagePath = path.join(root, article.image.replace(/^\\//, ""));
+  const imageBytes = fs.readFileSync(imagePath);
+  assert.ok(imageBytes.length >= 32, article.title + ": image is unexpectedly small: " + article.image);
+  if (/\\.png$/i.test(article.image)) {
+    assert.ok(imageBytes.subarray(0, 8).equals(Buffer.from([137,80,78,71,13,10,26,10])),
+      article.title + ": PNG signature is invalid: " + article.image);
+  }
   assert.ok(fs.existsSync(path.join(root, article.href.replace(/^\//,""), "index.html")),
     article.title + ": linked page doesn't exist: " + article.href);
   assert.ok(typeof article.alt === "string" && article.alt.trim(),
