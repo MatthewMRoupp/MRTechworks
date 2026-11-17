@@ -108,22 +108,24 @@ function verifyHelpDeskTurnstile_(token) {
     checked.action === "contact";
 }
 
+/**
+ * Apps Script ContentService returns a machine-readable response.
+ * Google may redirect the response to script.googleusercontent.com;
+ * the Cloudflare Worker follows that redirect and parses JSON.
+ * The browser never navigates to Google's Apps Script page.
+ */
 function helpDeskResponse_(success, message) {
-  var safe = String(message).replace(/[&<>"']/g, function(ch) {
-    return { "&": "&amp;", "<": "&lt;", ">": "&gt;",
-             '"': "&quot;", "'": "&#39;" }[ch];
-  });
-  var heading = success ? "Request received" : "Request not completed";
-  var html = '<!doctype html><html lang="en"><head><meta charset="utf-8">' +
-    '<meta name="viewport" content="width=device-width,initial-scale=1">' +
-    '<title>MR Techworks | ' + heading + '</title>' +
-    '<style>body{background:#07111f;color:#f1f5fa;font:16px system-ui,sans-serif;' +
-    'margin:0;padding:8vh 1.25rem}.panel{margin:auto;max-width:580px;' +
-    'background:#112139;border:1px solid #34566e;border-radius:16px;' +
-    'padding:2rem;line-height:1.65}h1{color:#36d7c8;font-size:1.7rem}' +
-    'a{color:#7dc5ff}</style></head><body><main class="panel">' +
-    '<h1>' + heading + '</h1><p>' + safe + '</p>' +
-    '<p><a href="https://mrtechworks.com/contact/">Return to MR Techworks</a></p>' +
-    '</main></body></html>';
-  return HtmlService.createHtmlOutput(html).setTitle("MR Techworks Support");
+  var ticket = success
+    ? String(message).match(/Your help ticket (MRT-\d+) has been received\./)
+    : null;
+
+  var payload = {
+    success: Boolean(success) && Boolean(ticket),
+    ticketId: ticket ? ticket[1] : null,
+    message: String(message)
+  };
+
+  return ContentService
+    .createTextOutput(JSON.stringify(payload))
+    .setMimeType(ContentService.MimeType.JSON);
 }
