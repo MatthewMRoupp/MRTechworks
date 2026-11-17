@@ -55,7 +55,7 @@
         <p>Tell me what is happening and how to reach you. I'll respond personally to discuss the issue and arrange a time that works for both of us.</p>
         <p class="helpdesk-availability"><strong>Flexible support:</strong> Primarily weekday evenings after 5:00 PM and weekends, by arrangement. Submitting a request does not book an appointment.</p>
       </div>
-      <form id="help-ticket-form" class="helpdesk-form" method="POST" action="#">
+      <form id="help-ticket-form" class="helpdesk-form" method="POST" action="#" accept-charset="UTF-8">
         <p class="ticket-note"><span class="ticket-required" aria-hidden="true">*</span> Required field. Fields marked optional can be left blank.</p>
         <!-- IMPORTANT: This form remains inactive until the authenticated, spam-protected
              Google Apps Script endpoint has been deployed and tested. -->
@@ -113,6 +113,10 @@
                     Once activated, submissions will be stored in a private ticket and emailed to support@mrtechworks.com for follow-up. 
                     You will recieve a confirmation email to the address entered in the form.
         </p>
+        <!-- Turnstile token is verified by Google Apps Script before any ticket is created. -->
+        <div class="ticket-turnstile">
+          <div class="cf-turnstile" data-sitekey="0x4AAAAAAGEYm4fSdMUirpGW" data-action="contact" data-theme="auto"></div>
+        </div>
         <div class="helpdesk-actions">
           <button class="btn btn-primary" type="submit" disabled aria-describedby="ticket-unavailable">Submit Help Ticket</button>
           <button class="btn btn-secondary" type="reset">Clear Form</button>
@@ -158,6 +162,7 @@
 .ticket-field input:focus-visible,.ticket-field select:focus-visible,.ticket-field textarea:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-color:var(--blue)}
 .ticket-required{display:inline;color:var(--teal);font-weight:800;margin-left:.12rem}
 .ticket-field [aria-invalid="true"]{border-color:#ffb19f;box-shadow:0 0 0 1px #ffb19f}
+.ticket-turnstile{margin:1.3rem 0;min-height:65px}
 .ticket-error{display:block;color:#ffc4b6;font-size:.84rem;font-weight:500;line-height:1.35}
 .ticket-full{grid-column:1/-1}
 .helpdesk-optional{font-size:.8rem;font-weight:400;color:var(--text-muted)}
@@ -171,6 +176,7 @@
 @media(max-width:760px){.helpdesk-contact-grid{grid-template-columns:1fr}}
 @media(max-width:650px){.ticket-grid{grid-template-columns:1fr}.ticket-full{grid-column:auto}.helpdesk-actions .btn{width:100%}}
 </style>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <script>
 /* Client-side field validation; backend must also validate before accepting tickets. */
 (() => {
