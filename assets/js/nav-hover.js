@@ -56,19 +56,24 @@
   });
 })();
 
-/* Desktop hover support; native details remains keyboard/touch accessible. */
+/* Keyboard dismissal works on all devices; hover behavior is desktop-only. */
 (() => {
-  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  const hasHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
   document.querySelectorAll('.site-nav .nav-dropdown details').forEach((menu) => {
+    menu.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && menu.open) {
+        menu.open = false;
+        menu.querySelector('summary')?.focus();
+        event.preventDefault();
+      }
+    });
+    if (!hasHover) return;
     menu.addEventListener('mouseenter', () => { menu.open = true; });
     menu.addEventListener('mouseleave', () => {
       if (!menu.contains(document.activeElement) || !document.activeElement.matches(':focus-visible')) menu.open = false;
     });
     menu.addEventListener('focusout', (event) => {
       if (!menu.contains(event.relatedTarget) && !menu.matches(':hover')) menu.open = false;
-    });
-    menu.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape') { menu.open = false; menu.querySelector('summary')?.focus(); }
     });
   });
 })();
