@@ -62,16 +62,16 @@
         <fieldset>
           <legend><span class="helpdesk-step">1</span> Your contact information</legend>
           <div class="ticket-grid">
-            <label class="ticket-field">Full name <span class="ticket-required" aria-hidden="true">*</span><input name="name" autocomplete="name" minlength="2" required maxlength="120" placeholder="Your name"></label>
-            <label class="ticket-field">Email address <span class="ticket-required" aria-hidden="true">*</span><input name="email" type="email" autocomplete="email" required maxlength="254" placeholder="you@example.com"></label>
-            <label class="ticket-field">Phone number <span class="ticket-required" aria-hidden="true">*</span><input name="phone" type="tel" autocomplete="tel" inputmode="tel" required maxlength="40" placeholder="(607) 555-0123"></label>
-            <label class="ticket-field">Street address <span class="helpdesk-optional">(optional)</span><input name="address" autocomplete="street-address" maxlength="240" placeholder="Only needed for on-site assistance"></label>
+            <label class="ticket-field"><span class="ticket-label-text">Full name <span class="ticket-required" aria-hidden="true">*</span></span><input name="name" autocomplete="name" minlength="2" required maxlength="120" placeholder="Your name"></label>
+            <label class="ticket-field"><span class="ticket-label-text">Email address <span class="ticket-required" aria-hidden="true">*</span></span><input name="email" type="email" autocomplete="email" required maxlength="254" placeholder="you@example.com"></label>
+            <label class="ticket-field"><span class="ticket-label-text">Phone number <span class="ticket-required" aria-hidden="true">*</span></span><input name="phone" type="tel" autocomplete="tel" inputmode="tel" required maxlength="40" placeholder="(607) 555-0123"></label>
+            <label class="ticket-field"><span class="ticket-label-text">Street address <span class="helpdesk-optional">(optional)</span></span><input name="address" autocomplete="street-address" maxlength="240" placeholder="Only needed for on-site assistance"></label>
           </div>
         </fieldset>
         <fieldset>
           <legend><span class="helpdesk-step">2</span> Tell me about the problem</legend>
           <div class="ticket-grid">
-            <label class="ticket-field ticket-full">What do you need help with? <span class="ticket-required" aria-hidden="true">*</span>
+            <label class="ticket-field ticket-full"><span class="ticket-label-text">What do you need help with? <span class="ticket-required" aria-hidden="true">*</span></span>
               <select name="service" required><option value="" selected disabled>Select a service</option>
                 <option>Computer or laptop repair</option><option>Windows / software troubleshooting</option>
                 <option>Hardware upgrade or data transfer</option><option>Home Wi-Fi / network</option>
@@ -79,10 +79,10 @@
                 <option>Security / malware concerns</option><option>Other technology help</option>
               </select>
             </label>
-            <label class="ticket-field ticket-full">What's happening? <span class="ticket-required" aria-hidden="true">*</span>
+            <label class="ticket-field ticket-full"><span class="ticket-label-text">What's happening? <span class="ticket-required" aria-hidden="true">*</span></span>
               <textarea name="problem" rows="5" minlength="15" required maxlength="3000" placeholder="Describe the device, symptoms, error messages, and anything you've tried."></textarea>
             </label>
-            <label class="ticket-field ticket-full">Town or general area <span class="ticket-required" aria-hidden="true">*</span>
+            <label class="ticket-field ticket-full"><span class="ticket-label-text">Town or general area <span class="ticket-required" aria-hidden="true">*</span></span>
               <input name="town" autocomplete="address-level2" required maxlength="120" placeholder="Corning, Elmira, Painted Post...">
             </label>
           </div>
@@ -90,20 +90,20 @@
         <fieldset>
           <legend><span class="helpdesk-step">3</span> How can I help?</legend>
           <div class="ticket-grid">
-            <label class="ticket-field">Type of appointment <span class="ticket-required" aria-hidden="true">*</span>
+            <label class="ticket-field"><span class="ticket-label-text">Type of appointment <span class="ticket-required" aria-hidden="true">*</span></span>
               <select name="appointment" required><option value="" selected disabled>Select an option</option>
                 <option>Drop-off / office appointment (when available)</option>
                 <option>Remote support call</option><option>On-site assistance</option>
                 <option>Not sure — let's discuss</option><option>Other</option>
               </select>
             </label>
-            <label class="ticket-field">Good time for a callback <span class="ticket-required" aria-hidden="true">*</span>
+            <label class="ticket-field"><span class="ticket-label-text">Good time for a callback <span class="ticket-required" aria-hidden="true">*</span></span>
               <select name="callback" required><option value="" selected disabled>Select a time</option>
                 <option>Weekday evening after 5:00 PM</option><option>Weekend morning</option>
                 <option>Weekend afternoon / evening</option><option>Flexible — text me first</option>
               </select>
             </label>
-            <label class="ticket-field ticket-full">Other availability preferences <span class="helpdesk-optional">(optional)</span>
+            <label class="ticket-field ticket-full"><span class="ticket-label-text">Other availability preferences <span class="helpdesk-optional">(optional)</span></span>
               <input name="availability" maxlength="240" placeholder="For example, Tuesday after 6 or Saturday mornings">
             </label>
           </div>
@@ -145,6 +145,8 @@
 .helpdesk-step{display:inline-grid;place-items:center;width:2rem;height:2rem;margin-right:.45rem;border-radius:50%;background:rgba(125,197,255,.14);color:var(--blue);font-size:.85rem}
 .ticket-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.1rem;clear:both}
 .ticket-field{display:flex;flex-direction:column;gap:.4rem;min-width:0;font-weight:700;color:var(--text)}
+.ticket-label-text{display:block;line-height:1.4}
+.ticket-label-text .ticket-required,.ticket-label-text .helpdesk-optional{display:inline;vertical-align:baseline}
 .ticket-field input,.ticket-field select,.ticket-field textarea{width:100%;min-height:48px;padding:.8rem .9rem;background:rgba(7,17,31,.8);border:1px solid var(--line-strong);border-radius:var(--radius-sm);color:var(--text);font:inherit;font-weight:400}
 .ticket-field textarea{min-height:125px;resize:vertical}
 .ticket-field input::placeholder,.ticket-field textarea::placeholder{color:var(--text-muted);opacity:.8}
