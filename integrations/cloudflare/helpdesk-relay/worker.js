@@ -74,19 +74,34 @@ export default {
       if (!upstream.ok) {
         return json({error:"The ticket service is temporarily unavailable. Please check your email before retrying."},502,origin);
       }
-      const html = await upstream.text();
-      if (/<h1[^>]*>\s*Request received\s*<\/h1>/i.test(html)) {
-        const match = html.match(/Your help ticket\s+(MRT-\d+)\b/i);
-        if (match) return json({success:true,ticketId:match[1]},200,origin);
+      // Apps Script uses ContentService JSON; do not scrape Google HTML.
+      // It follows Google's script.googleusercontent.com redirect automatically.
+      const contentType = upstream.headers.get("Content-Type") || "";
+      const resultText = await upstream.text();
+      if (!contentType.toLowerCase().includes("application/json")) {
+        return json({error:"The ticket was processed but confirmation could not be verified. Check your email before retrying."},502,origin);
       }
-      if (/Security verification failed or expired/i.test(html)) {
-        return json({error:"Security verification failed or expired. Please refresh the form and try again."},422,origin);
+      let result;
+      try {
+        result = JSON.parse(resultText);
+      } catch (_) {
+        return json({error:"The ticket response was unreadable. Check your email before retrying."},502,origin);
       }
-      if (/recently submitted from this email/i.test(html)) {
-        return json({error:"A request from this email was recently submitted. Please check your confirmation email before trying again."},429,origin);
+      if (result && result.success === true &&
+          typeof result.ticketId === "string" &&
+          /^MRT-\d+$/.test(result.ticketId)) {
+        return json({success:true,ticketId:result.ticketId},200,origin);
       }
-      // Apps Script may have saved the ticket before failing during email delivery.
-      return json({error:"We could not confirm the ticket. Check your email before resubmitting, or text 607-346-9349."},502,origin);
+      // A structured error response does not mean a ticket is absent.
+      // In particular, Gmail delivery may fail after a Sheet row is saved.
+      const safeMessage = result && typeof result.message === "string" ? result.message : "";
+      if (/Security verification failed or expired/i.test(safeMessage)) {
+        return json({error:"Security verification failed or expired. Refresh the form and try again."},422,origin);
+      }
+      if (/recently submitted from this email/i.test(safeMessage)) {
+        return json({error:"A request from this email was recently submitted. Check your confirmation email before trying again."},429,origin);
+      }
+      return json({error:"Unable to confirm your ticket. Check your email before resubmitting, or text 607-346-9349."},502,origin);
     } catch (_) {
       return json({error:"We could not confirm the ticket. Check your email before resubmitting, or text 607-346-9349."},502,origin);
     }
