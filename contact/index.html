@@ -55,10 +55,9 @@
         <p>Tell me what is happening and how to reach you. I'll respond personally to discuss the issue and arrange a time that works for both of us.</p>
         <p class="helpdesk-availability"><strong>Flexible support:</strong> Primarily weekday evenings after 5:00 PM and weekends, by arrangement. Submitting a request does not book an appointment.</p>
       </div>
-      <form id="help-ticket-form" class="helpdesk-form" method="POST" action="#" accept-charset="UTF-8">
+      <form id="help-ticket-form" class="helpdesk-form" method="POST" action="https://script.google.com/macros/s/AKfycbzMSnX3JpZSIM_7rTGGSHYJF1AH6xQHzrU5w8ojwbNMiPWntV3dmzXpBJQ6gJJ-a72kVQ/exec" accept-charset="UTF-8">
         <p class="ticket-note"><span class="ticket-required" aria-hidden="true">*</span> Required field. Fields marked optional can be left blank.</p>
-        <!-- IMPORTANT: This form remains inactive until the authenticated, spam-protected
-             Google Apps Script endpoint has been deployed and tested. -->
+        <!-- Public submissions are processed by Google Apps Script and verified server-side by Cloudflare Turnstile. -->
         <fieldset>
           <legend><span class="helpdesk-step">1</span> Your contact information</legend>
           <div class="ticket-grid">
@@ -113,15 +112,20 @@
                     Once activated, submissions will be stored in a private ticket and emailed to support@mrtechworks.com for follow-up. 
                     You will recieve a confirmation email to the address entered in the form.
         </p>
+        <!-- This optional hidden field traps simple bots without affecting legitimate visitors. -->
+        <div class="ticket-trap" aria-hidden="true">
+          <label for="ticket-company-website">Leave this field blank</label>
+          <input id="ticket-company-website" name="company_website" type="text" tabindex="-1" autocomplete="off">
+        </div>
         <!-- Turnstile token is verified by Google Apps Script before any ticket is created. -->
         <div class="ticket-turnstile">
           <div class="cf-turnstile" data-sitekey="0x4AAAAAAGEYm4fSdMUirpGW" data-action="contact" data-theme="auto"></div>
         </div>
         <div class="helpdesk-actions">
-          <button class="btn btn-primary" type="submit" disabled aria-describedby="ticket-unavailable">Submit Help Ticket</button>
+          <button class="btn btn-primary" type="submit" aria-describedby="ticket-submission-note">Submit Help Ticket</button>
           <button class="btn btn-secondary" type="reset">Clear Form</button>
         </div>
-        <p id="ticket-unavailable" class="helpdesk-status" role="status">Online ticket submissions are being connected and tested. For help now, please text or email using the links below.</p>
+        <p id="ticket-submission-note" class="helpdesk-status" role="status">After submitting, you’ll see a confirmation page with your ticket number. An appointment is not booked until we contact you.</p>
       </form>
     </div>
   </div>
@@ -163,6 +167,7 @@
 .ticket-required{display:inline;color:var(--teal);font-weight:800;margin-left:.12rem}
 .ticket-field [aria-invalid="true"]{border-color:#ffb19f;box-shadow:0 0 0 1px #ffb19f}
 .ticket-turnstile{margin:1.3rem 0;min-height:65px}
+.ticket-trap{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .ticket-error{display:block;color:#ffc4b6;font-size:.84rem;font-weight:500;line-height:1.35}
 .ticket-full{grid-column:1/-1}
 .helpdesk-optional{font-size:.8rem;font-weight:400;color:var(--text-muted)}
@@ -222,7 +227,21 @@
       if (field.getAttribute("aria-invalid") === "true") validate(field);
     });
   });
+  form.addEventListener("submit", event => {
+    const turnstileToken = form.querySelector('input[name="cf-turnstile-response"]');
+    if (!turnstileToken || !turnstileToken.value.trim()) {
+      event.preventDefault();
+      const notice = document.getElementById("ticket-submission-note");
+      if (notice) notice.textContent = "Please complete the security verification before submitting.";
+      return;
+    }
+    // Native form navigation submits directly to the Apps Script /exec endpoint.
+    // The server validates the token and displays the result; never use fetch() here.
+  });
   form.addEventListener("reset", () => {
+    const notice = document.getElementById("ticket-submission-note");
+    if (notice) notice.textContent = "After submitting, you’ll see a confirmation page with your ticket number. An appointment is not booked until we contact you.";
+    if (window.turnstile) window.turnstile.reset();
     form.querySelectorAll(".ticket-error").forEach(error => error.remove());
     fields.forEach(field => {
       field.removeAttribute("aria-invalid");
