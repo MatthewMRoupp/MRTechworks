@@ -55,7 +55,7 @@
         <p>Tell me what is happening and how to reach you. I'll respond personally to discuss the issue and arrange a time that works for both of us.</p>
         <p class="helpdesk-availability"><strong>Flexible support:</strong> Primarily weekday evenings after 5:00 PM and weekends, by arrangement. Submitting a request does not book an appointment.</p>
       </div>
-      <form id="help-ticket-form" class="helpdesk-form" method="POST" action="https://script.google.com/macros/s/AKfycbzMSnX3JpZSIM_7rTGGSHYJF1AH6xQHzrU5w8ojwbNMiPWntV3dmzXpBJQ6gJJ-a72kVQ/exec" accept-charset="UTF-8">
+      <form id="help-ticket-form" class="helpdesk-form" method="POST" action="https://mrtechworks-helpdesk-relay.mrtechworks-support.workers.dev/ticket" accept-charset="UTF-8">
         <p class="ticket-note"><span class="ticket-required" aria-hidden="true">*</span> Required field. Fields marked optional can be left blank.</p>
         <!-- Public submissions are processed by Google Apps Script and verified server-side by Cloudflare Turnstile. -->
         <fieldset>
@@ -125,7 +125,7 @@
           <button class="btn btn-primary" type="submit" aria-describedby="ticket-submission-note">Submit Help Ticket</button>
           <button class="btn btn-secondary" type="reset">Clear Form</button>
         </div>
-        <p id="ticket-submission-note" class="helpdesk-status" role="status">After submitting, you’ll see a confirmation page with your ticket number. An appointment is not booked until we contact you.</p>
+        <p id="ticket-submission-note" class="helpdesk-status" role="status">Submitting keeps you on MR Techworks. You will receive a ticket number after confirmation; appointments are arranged separately.</p>
       </form>
     </div>
   </div>
@@ -227,20 +227,45 @@
       if (field.getAttribute("aria-invalid") === "true") validate(field);
     });
   });
-  form.addEventListener("submit", event => {
-    const turnstileToken = form.querySelector('input[name="cf-turnstile-response"]');
-    if (!turnstileToken || !turnstileToken.value.trim()) {
-      event.preventDefault();
-      const notice = document.getElementById("ticket-submission-note");
-      if (notice) notice.textContent = "Please complete the security verification before submitting.";
+  const submitButton = form.querySelector('button[type="submit"]');
+  const statusLine = document.getElementById("ticket-submission-note");
+  form.addEventListener("submit", async event => {
+    event.preventDefault();
+    if (submitButton.disabled) return;
+    const token = form.querySelector('input[name="cf-turnstile-response"]');
+    if (!token || !token.value.trim()) {
+      if (statusLine) statusLine.textContent = "Please complete the security verification before submitting.";
       return;
     }
-    // Native form navigation submits directly to the Apps Script /exec endpoint.
-    // The server validates the token and displays the result; never use fetch() here.
+    submitButton.disabled = true;
+    submitButton.textContent = "Submitting...";
+    if (statusLine) statusLine.textContent = "Sending your request securely. Please do not resubmit.";
+    try {
+      const response = await fetch(form.action, {
+        method: "POST",
+        mode: "cors",
+        headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
+        body: new URLSearchParams(new FormData(form))
+      });
+      const outcome = await response.json();
+      if (response.ok && outcome.success && /^MRT-\d+$/.test(outcome.ticketId)) {
+        window.location.assign("/contact/thank-you/?ticket=" + encodeURIComponent(outcome.ticketId));
+        return;
+      }
+      if (statusLine) statusLine.textContent = outcome.error ||
+        "Unable to confirm your request. Please check for an email before trying again.";
+    } catch (error) {
+      if (statusLine) statusLine.textContent =
+        "Unable to confirm your request. Check your email or text 607-346-9349 before trying again.";
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = "Submit Help Ticket";
+      if (window.turnstile) window.turnstile.reset();
+    }
   });
   form.addEventListener("reset", () => {
     const notice = document.getElementById("ticket-submission-note");
-    if (notice) notice.textContent = "After submitting, you’ll see a confirmation page with your ticket number. An appointment is not booked until we contact you.";
+    if (notice) notice.textContent = "Submitting keeps you on MR Techworks. You will receive a ticket number after confirmation; appointments are arranged separately.";
     if (window.turnstile) window.turnstile.reset();
     form.querySelectorAll(".ticket-error").forEach(error => error.remove());
     fields.forEach(field => {
