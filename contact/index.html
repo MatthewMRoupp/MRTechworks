@@ -56,21 +56,22 @@
         <p class="helpdesk-availability"><strong>Flexible support:</strong> Primarily weekday evenings after 5:00 PM and weekends, by arrangement. Submitting a request does not book an appointment.</p>
       </div>
       <form id="help-ticket-form" class="helpdesk-form" method="POST" action="#">
+        <p class="ticket-note"><span class="ticket-required" aria-hidden="true">*</span> Required field. Fields marked optional can be left blank.</p>
         <!-- IMPORTANT: This form remains inactive until the authenticated, spam-protected
              Google Apps Script endpoint has been deployed and tested. -->
         <fieldset>
-          <legend><span class="helpdesk-step">01</span> Your contact information</legend>
+          <legend><span class="helpdesk-step">1</span> Your contact information</legend>
           <div class="ticket-grid">
-            <label class="ticket-field">Full name <span aria-hidden="true">*</span><input name="name" autocomplete="name" required maxlength="120" placeholder="Your name"></label>
-            <label class="ticket-field">Email address <span aria-hidden="true">*</span><input name="email" type="email" autocomplete="email" required maxlength="254" placeholder="you@example.com"></label>
-            <label class="ticket-field">Phone number <span aria-hidden="true">*</span><input name="phone" type="tel" autocomplete="tel" required maxlength="40" placeholder="(607) 555-0123"></label>
+            <label class="ticket-field">Full name <span class="ticket-required" aria-hidden="true">*</span><input name="name" autocomplete="name" minlength="2" required maxlength="120" placeholder="Your name"></label>
+            <label class="ticket-field">Email address <span class="ticket-required" aria-hidden="true">*</span><input name="email" type="email" autocomplete="email" required maxlength="254" placeholder="you@example.com"></label>
+            <label class="ticket-field">Phone number <span class="ticket-required" aria-hidden="true">*</span><input name="phone" type="tel" autocomplete="tel" inputmode="tel" required maxlength="40" placeholder="(607) 555-0123"></label>
             <label class="ticket-field">Street address <span class="helpdesk-optional">(optional)</span><input name="address" autocomplete="street-address" maxlength="240" placeholder="Only needed for on-site assistance"></label>
           </div>
         </fieldset>
         <fieldset>
-          <legend><span class="helpdesk-step">02</span> Tell me about the problem</legend>
+          <legend><span class="helpdesk-step">2</span> Tell me about the problem</legend>
           <div class="ticket-grid">
-            <label class="ticket-field ticket-full">What do you need help with? <span aria-hidden="true">*</span>
+            <label class="ticket-field ticket-full">What do you need help with? <span class="ticket-required" aria-hidden="true">*</span>
               <select name="service" required><option value="" selected disabled>Select a service</option>
                 <option>Computer or laptop repair</option><option>Windows / software troubleshooting</option>
                 <option>Hardware upgrade or data transfer</option><option>Home Wi-Fi / network</option>
@@ -78,25 +79,25 @@
                 <option>Security / malware concerns</option><option>Other technology help</option>
               </select>
             </label>
-            <label class="ticket-field ticket-full">What's happening? <span aria-hidden="true">*</span>
-              <textarea name="problem" rows="5" required maxlength="3000" placeholder="Describe the device, symptoms, error messages, and anything you've tried."></textarea>
+            <label class="ticket-field ticket-full">What's happening? <span class="ticket-required" aria-hidden="true">*</span>
+              <textarea name="problem" rows="5" minlength="15" required maxlength="3000" placeholder="Describe the device, symptoms, error messages, and anything you've tried."></textarea>
             </label>
-            <label class="ticket-field ticket-full">Town or general area <span aria-hidden="true">*</span>
+            <label class="ticket-field ticket-full">Town or general area <span class="ticket-required" aria-hidden="true">*</span>
               <input name="town" autocomplete="address-level2" required maxlength="120" placeholder="Corning, Elmira, Painted Post...">
             </label>
           </div>
         </fieldset>
         <fieldset>
-          <legend><span class="helpdesk-step">03</span> How can I help?</legend>
+          <legend><span class="helpdesk-step">3</span> How can I help?</legend>
           <div class="ticket-grid">
-            <label class="ticket-field">Type of appointment <span aria-hidden="true">*</span>
+            <label class="ticket-field">Type of appointment <span class="ticket-required" aria-hidden="true">*</span>
               <select name="appointment" required><option value="" selected disabled>Select an option</option>
                 <option>Drop-off / office appointment (when available)</option>
                 <option>Remote support call</option><option>On-site assistance</option>
                 <option>Not sure — let's discuss</option><option>Other</option>
               </select>
             </label>
-            <label class="ticket-field">Good time for a callback <span aria-hidden="true">*</span>
+            <label class="ticket-field">Good time for a callback <span class="ticket-required" aria-hidden="true">*</span>
               <select name="callback" required><option value="" selected disabled>Select a time</option>
                 <option>Weekday evening after 5:00 PM</option><option>Weekend morning</option>
                 <option>Weekend afternoon / evening</option><option>Flexible — text me first</option>
@@ -149,6 +150,9 @@
 .ticket-field input::placeholder,.ticket-field textarea::placeholder{color:var(--text-muted);opacity:.8}
 .ticket-field select option{color:#07111f;background:#fff}
 .ticket-field input:focus-visible,.ticket-field select:focus-visible,.ticket-field textarea:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-color:var(--blue)}
+.ticket-required{display:inline;color:var(--teal);font-weight:800;margin-left:.12rem}
+.ticket-field [aria-invalid="true"]{border-color:#ffb19f;box-shadow:0 0 0 1px #ffb19f}
+.ticket-error{display:block;color:#ffc4b6;font-size:.84rem;font-weight:500;line-height:1.35}
 .ticket-full{grid-column:1/-1}
 .helpdesk-optional{font-size:.8rem;font-weight:400;color:var(--text-muted)}
 .ticket-note{font-size:.91rem;color:var(--text-muted);line-height:1.6;margin-top:1.25rem}
@@ -161,6 +165,60 @@
 @media(max-width:760px){.helpdesk-contact-grid{grid-template-columns:1fr}}
 @media(max-width:650px){.ticket-grid{grid-template-columns:1fr}.ticket-full{grid-column:auto}.helpdesk-actions .btn{width:100%}}
 </style>
+<script>
+/* Client-side field validation; backend must also validate before accepting tickets. */
+(() => {
+  const form = document.getElementById("help-ticket-form");
+  if (!form) return;
+  const fields = [...form.querySelectorAll("input, select, textarea")];
+  const messages = {
+    name: "Please enter a name with at least 2 characters.",
+    email: "Please enter a valid email address.",
+    phone: "Please enter a phone number with 10 to 15 digits.",
+    problem: "Please describe the issue in at least 15 characters."
+  };
+  function validate(field) {
+    const value = field.value.trim();
+    let valid = field.checkValidity() && (!field.required || value.length > 0);
+    if (field.name === "phone" && value) {
+      const digits = value.replace(/\D/g, "");
+      valid = valid && /^[+()\d.\s-]+$/.test(value) && digits.length >= 10 && digits.length <= 15;
+    }
+    let error = field.parentElement.querySelector(".ticket-error");
+    if (!valid) {
+      if (!error) {
+        error = document.createElement("span");
+        error.className = "ticket-error";
+        error.id = "ticket-error-" + field.name;
+        field.insertAdjacentElement("afterend", error);
+      }
+      error.textContent = !value && field.required ? "This field is required." :
+        (messages[field.name] || "Please check this field.");
+      field.setAttribute("aria-invalid", "true");
+      field.setAttribute("aria-describedby", error.id);
+    } else {
+      if (error) error.remove();
+      field.removeAttribute("aria-invalid");
+      field.removeAttribute("aria-describedby");
+    }
+    return valid;
+  }
+  fields.forEach(field => {
+    field.addEventListener("blur", () => validate(field));
+    field.addEventListener("change", () => validate(field));
+    field.addEventListener("input", () => {
+      if (field.getAttribute("aria-invalid") === "true") validate(field);
+    });
+  });
+  form.addEventListener("reset", () => {
+    form.querySelectorAll(".ticket-error").forEach(error => error.remove());
+    fields.forEach(field => {
+      field.removeAttribute("aria-invalid");
+      field.removeAttribute("aria-describedby");
+    });
+  });
+})();
+</script>
 <!-- Final callout -->
 <section class="section section-tight">
 <div class="container callout-banner reveal">
