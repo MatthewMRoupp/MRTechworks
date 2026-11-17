@@ -1,9 +1,9 @@
 {
-  "active": true,
-  "title": "US online banking disruptions reported",
-  "level": "warning",
-  "message": "Nov 16: Chase confirms a technical issue delaying some transactions. Customers also report access or payment problems at several major US banks; impacts vary by institution. No confirmed cyberattack or specific Corning–Elmira outage. Check your bank directly before retrying payments.",
-  "observedAt": "2026-11-16T15:08:00-05:00",
-  "expiresAt": "2026-11-16T23:08:00-05:00",
-  "url": "https://apnews.com/article/bank-outage-chase-wells-fargo-truist-50fee2693c22f597fa6ca51a97ef2cda"
+  "active": false,
+  "title": "Chase banking transaction delays recovering",
+  "level": "info",
+  "message": "Nov 16 evening: Chase says its systems are recovering after a software-related disruption delayed some transactions. Other banks reported their own systems operating normally, though transfers involving Chase may have been delayed. Verify transaction status directly with your bank before retrying. No confirmed Corning–Elmira-specific outage.",
+  "observedAt": "2026-11-16T22:37:00-05:00",
+  "expiresAt": "2026-11-16T22:37:00-05:00",
+  "url": "https://www.foxbusiness.com/money/jpmorgan-chase-systems-recovering-following-hourslong-nationwide-technical-outage"
 }
