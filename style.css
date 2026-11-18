@@ -1822,3 +1822,36 @@ main > .page-hero + .section { padding-top: clamp(2.25rem,4vw,3.25rem); }
     background-position: center, 58% center;
   }
 }
+
+
+/* ===== Mobile layout foundations (Nov 2026) =====
+   Shared pages remain responsive; desktop styling is unchanged.
+   Keep these rules scoped to narrow screens and avoid fixed widths. */
+@media (max-width: 600px) {
+  /* Prevent grid/flex content, long URLs and article headings from widening the viewport. */
+  .container, main, article, .card, .article-card, .hero-copy,
+  .hero-panel-body, .preview-body, .content-split > *,
+  .card-grid > *, .article-grid > * {
+    min-width: 0;
+  }
+  main, article, .card, .article-card, .hero-copy {
+    overflow-wrap: anywhere;
+  }
+  /* Images and embedded content fit the reading column without distortion. */
+  article img, .article-card img, .card img, main iframe, main video {
+    max-width: 100%;
+    height: auto;
+  }
+  /* Forms are usable without horizontal scrolling or clipped controls. */
+  main input:not([type="checkbox"]):not([type="radio"]),
+  main select, main textarea {
+    max-width: 100%;
+    min-width: 0;
+  }
+  /* Keep wide data tables scrollable without forcing the entire page sideways. */
+  main table { max-width: 100%; }
+  /* Comfortable touch targets for primary navigation and actions. */
+  .site-nav a, .site-nav summary, .hero-actions .btn {
+    min-height: 44px;
+  }
+}
