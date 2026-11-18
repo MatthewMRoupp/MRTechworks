@@ -1,9 +1,9 @@
 {
   "active": false,
-  "title": "Microsoft 365 service restored",
+  "title": "Apple services disruption — recovery reported",
   "level": "info",
-  "message": "Microsoft reported on November 14, 2026 that services were restored following the global Microsoft 365 disruption affecting Outlook, Exchange Online and Teams. This is a worldwide service recovery; no distinct Corning or Elmira outage was confirmed. If problems persist, check your organization's Microsoft 365 service health.",
-  "observedAt": "2026-11-14T06:29:00-05:00",
-  "expiresAt": "2026-11-14T06:29:00-05:00",
-  "url": "https://status.cloud.microsoft/"
+  "message": "Nov 17: Apple reported disruptions affecting iCloud sign-in, App Store and other services following an internal update. Apple said many systems had recovered and it was restoring remaining services. Check Apple's System Status for current availability. No Corning–Elmira-specific impact confirmed.",
+  "observedAt": "2026-11-17T22:35:00-05:00",
+  "expiresAt": "2026-11-17T22:35:00-05:00",
+  "url": "https://www.apple.com/support/systemstatus/"
 }
