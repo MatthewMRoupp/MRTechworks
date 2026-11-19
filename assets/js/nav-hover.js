@@ -56,6 +56,46 @@
   });
 })();
 
+/* Compact mobile navigation: progressive enhancement keeps desktop and no-JS navigation intact. */
+(() => {
+  document.querySelectorAll('.site-header .header-inner').forEach((header) => {
+    const nav = header.querySelector('.site-nav');
+    if (!nav || header.querySelector('.mobile-menu-toggle')) return;
+    if (!nav.id) nav.id = 'site-mobile-nav';
+    const toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.className = 'mobile-menu-toggle';
+    toggle.setAttribute('aria-controls', nav.id);
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Open navigation menu');
+    toggle.innerHTML = '<span class="mobile-menu-bars" aria-hidden="true"><span></span><span></span><span></span></span>';
+    header.insertBefore(toggle, nav);
+    const setOpen = (open) => {
+      header.classList.toggle('mobile-menu-open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+      if (!open) nav.querySelectorAll('details[open]').forEach((details) => { details.open = false; });
+    };
+    toggle.addEventListener('click', () => setOpen(!header.classList.contains('mobile-menu-open')));
+    nav.addEventListener('click', (event) => {
+      if (event.target.closest('a')) setOpen(false);
+    });
+    header.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && header.classList.contains('mobile-menu-open')) {
+        setOpen(false); toggle.focus();
+      }
+    });
+    document.addEventListener('click', (event) => {
+      if (header.classList.contains('mobile-menu-open') && !header.contains(event.target)) setOpen(false);
+    });
+    const desktop = window.matchMedia('(min-width: 821px)');
+    const reset = () => { if (desktop.matches) setOpen(false); };
+    if (desktop.addEventListener) desktop.addEventListener('change', reset);
+    else desktop.addListener(reset);
+    header.classList.add('mobile-menu-ready');
+  });
+})();
+
 /* Keyboard dismissal works on all devices; hover behavior is desktop-only. */
 (() => {
   const hasHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
