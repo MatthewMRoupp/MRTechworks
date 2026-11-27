@@ -14,6 +14,7 @@ on:
       - 'news/**'
       - 'tests/verify-article-covers.cjs'
       - 'tests/verify-asset-library.cjs'
+      - 'tests/audit-site-links.cjs'
       - '.github/workflows/verify-article-covers.yml'
   push:
     branches: [main]
@@ -29,6 +30,7 @@ on:
       - 'news/**'
       - 'tests/verify-article-covers.cjs'
       - 'tests/verify-asset-library.cjs'
+      - 'tests/audit-site-links.cjs'
   workflow_dispatch:
 
 permissions:
@@ -44,8 +46,13 @@ jobs:
         with:
           node-version: '22'
       - name: Check library JavaScript syntax
-        run: node --check assets/js/articles.js
+        run: |
+          node --check assets/js/articles.js
+          node --check assets/js/library-data.js
+          node --check assets/js/nav-hover.js
       - name: Verify all article images, routes and alt text
         run: node tests/verify-article-covers.cjs
       - name: Validate credited image paths and tidy repository root
         run: node tests/verify-asset-library.cjs
+      - name: Audit local links and basic HTML accessibility
+        run: node tests/audit-site-links.cjs

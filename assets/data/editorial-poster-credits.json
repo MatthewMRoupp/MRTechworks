@@ -7,6 +7,46 @@
   "note": "Cover illustrations are not game screenshots or documentary images. In-article photos retain their separate Creative Commons credits. For Facebook/Open Graph, prefer a rasterized PNG or JPG version; SVG og:image support is limited.",
   "posters": [
     {
+      "path": "/assets/images/article-library/editorial-posters/project-website-redesign.svg",
+      "title": "How I Rebuilt the MR Techworks Website",
+      "creator": "MR Techworks",
+      "credit": "Original vector project illustration: MR Techworks",
+      "aiDisclosure": "Original vector artwork created with AI assistance",
+      "usage": "Project story cover; original project page remains available"
+    },
+    {
+      "path": "/assets/images/article-library/editorial-posters/project-data-analytics-simulation.svg",
+      "title": "Data Analytics and Forensics: Tableau and Excel Project",
+      "creator": "MR Techworks",
+      "credit": "Original vector project illustration: MR Techworks",
+      "aiDisclosure": "Original vector artwork created with AI assistance",
+      "usage": "Project story cover; original project page remains available"
+    },
+    {
+      "path": "/assets/images/article-library/editorial-posters/project-home-network-mesh.svg",
+      "title": "Home Network Planning: Segmentation and Mesh Wi-Fi",
+      "creator": "MR Techworks",
+      "credit": "Original vector project illustration: MR Techworks",
+      "aiDisclosure": "Original vector artwork created with AI assistance",
+      "usage": "Project story cover; original project page remains available"
+    },
+    {
+      "path": "/assets/images/article-library/editorial-posters/project-home-media-server.svg",
+      "title": "Home Media Server Setup and Remote Management",
+      "creator": "MR Techworks",
+      "credit": "Original vector project illustration: MR Techworks",
+      "aiDisclosure": "Original vector artwork created with AI assistance",
+      "usage": "Project story cover; original project page remains available"
+    },
+    {
+      "path": "/assets/images/article-library/editorial-posters/project-computer-build-planning.svg",
+      "title": "Planning PC Builds Around Budget, Compatibility and Needs",
+      "creator": "MR Techworks",
+      "credit": "Original vector project illustration: MR Techworks",
+      "aiDisclosure": "Original vector artwork created with AI assistance",
+      "usage": "Project story cover; original project page remains available"
+    },
+    {
       "path": "/assets/images/article-library/editorial-posters/wolfenstein-3.svg",
       "title": "Wolfenstein 3",
       "creator": "MR Techworks",
