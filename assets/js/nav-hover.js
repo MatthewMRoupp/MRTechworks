@@ -1,58 +1,36 @@
-/* Consolidate site navigation without editing individual page headers. */
+/* Prefer one clear Articles link. The Article Library includes tech, gaming, help and project stories; preserve old URLs for direct links and no-JS visitors. */
 (() => {
   document.querySelectorAll('.site-nav > ul').forEach((list) => {
-    if (list.querySelector('[data-resources-menu]')) return;
-    const items = [
-      {href:'/articles/',label:'Article Library'},
-      {href:'/news/',label:'Tech News'},
-      {href:'/gaming-news/',label:'Gaming News'},
-      {href:'/projects/',label:'Projects'}
-    ];
-    const li=document.createElement('li');
-    li.className='nav-dropdown nav-resources';
-    li.dataset.resourcesMenu='true';
-    const details=document.createElement('details');
-    const summary=document.createElement('summary');
-    summary.append(document.createTextNode('Resources '));
-    const chevron=document.createElement('span');
-    chevron.className='nav-chevron';chevron.setAttribute('aria-hidden','true');
-    summary.append(chevron);
-    const menu=document.createElement('div');
-    menu.className='nav-dropdown-menu';
-    items.forEach(({href,label})=>{
-      const link=document.createElement('a');link.href=href;link.textContent=label;
-      if(location.pathname.startsWith(href)) {link.setAttribute('aria-current','page');li.classList.add('nav-current');}
-      menu.append(link);
-      list.querySelectorAll('li > a').forEach(existing=>{
-        if(existing.getAttribute('href')===href) existing.closest('li').remove();
-      });
+    list.querySelectorAll(':scope > li.nav-resources, :scope > li[data-resources-menu]').forEach(el => el.remove());
+    const topLinks = () => Array.from(list.querySelectorAll(':scope > li > a'));
+    let articleLink = topLinks().find(link => link.getAttribute('href') === '/articles/');
+    if (!articleLink) {
+      const item = document.createElement('li');
+      articleLink = document.createElement('a');
+      articleLink.href = '/articles/'; articleLink.textContent = 'Articles';
+      item.appendChild(articleLink);
+      const contact = topLinks().find(link => link.getAttribute('href') === '/contact/');
+      const about = list.querySelector(':scope > li.nav-dropdown');
+      list.insertBefore(item, about || (contact && contact.parentElement) || null);
+    }
+    if (/^\/(?:articles|news|gaming-news|projects)\//.test(location.pathname)) articleLink.setAttribute('aria-current','page');
+    topLinks().forEach(link => {
+      const href = link.getAttribute('href');
+      if (['/projects/','/gaming-news/','/news/'].includes(href)) link.parentElement.remove();
     });
-    // Certifications is part of About, not the general Resources menu.
-    const aboutDetails = Array.from(list.querySelectorAll('.nav-dropdown details')).find(
-      (entry) => entry.querySelector('.nav-dropdown-menu a[href="/about/"]')
-    );
+    // Keep Certifications under About, rather than removing this route.
+    const aboutDetails = Array.from(list.querySelectorAll('.nav-dropdown details')).find(entry => entry.querySelector('.nav-dropdown-menu a[href="/about/"]'));
     if (aboutDetails) {
       const aboutMenu = aboutDetails.querySelector('.nav-dropdown-menu');
-      let certificateLink = aboutMenu.querySelector('a[href="/certifications/"]');
-      if (!certificateLink) {
-        certificateLink = document.createElement('a');
-        certificateLink.href = '/certifications/';
-        certificateLink.textContent = 'Certifications & Training';
-        const contactLink = aboutMenu.querySelector('a[href="/contact/"]');
-        if (contactLink) aboutMenu.insertBefore(certificateLink, contactLink);
-        else aboutMenu.append(certificateLink);
+      let cert = aboutMenu.querySelector('a[href="/certifications/"]');
+      if (!cert) {
+        cert = document.createElement('a'); cert.href='/certifications/'; cert.textContent='Certifications & Training';
+        const contact = aboutMenu.querySelector('a[href="/contact/"]');
+        if (contact) aboutMenu.insertBefore(cert,contact); else aboutMenu.append(cert);
       }
-      if (location.pathname.startsWith('/certifications/')) {
-        certificateLink.setAttribute('aria-current', 'page');
-        aboutDetails.classList.add('nav-current');
-      }
-      list.querySelectorAll(':scope > li > a[href="/certifications/"]').forEach(
-        (link) => link.closest('li').remove()
-      );
+      if (location.pathname.startsWith('/certifications/')) {cert.setAttribute('aria-current','page');aboutDetails.classList.add('nav-current');}
+      list.querySelectorAll(':scope > li > a[href="/certifications/"]').forEach(link=>link.parentElement.remove());
     }
-    details.append(summary,menu);li.append(details);
-    const about=list.querySelector('.nav-dropdown');
-    if(about)list.insertBefore(li,about);else list.append(li);
   });
 })();
 

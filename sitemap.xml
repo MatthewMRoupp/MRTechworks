@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://mrtechworks.com/</loc></url>
+  
+  <url><loc>https://mrtechworks.com/articles/project-website-redesign/</loc></url>
+  <url><loc>https://mrtechworks.com/articles/project-data-analytics-simulation/</loc></url>
+  <url><loc>https://mrtechworks.com/articles/project-home-network-mesh/</loc></url>
+  <url><loc>https://mrtechworks.com/articles/project-home-media-server/</loc></url>
+  <url><loc>https://mrtechworks.com/articles/project-computer-build-planning/</loc></url>
+<url><loc>https://mrtechworks.com/</loc></url>
   <url><loc>https://mrtechworks.com/services/</loc></url>
   <url><loc>https://mrtechworks.com/articles/</loc></url>
   <url><loc>https://mrtechworks.com/news/</loc></url>
