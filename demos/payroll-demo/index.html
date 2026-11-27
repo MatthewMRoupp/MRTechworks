@@ -4,9 +4,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Payroll Demo</title>
 
   <style>
+    .skip-link{position:absolute;left:-9999px;top:0;background:#fff;color:#102437;padding:.5rem;z-index:10}
+    .skip-link:focus{left:1rem;top:1rem}
     * {
       box-sizing: border-box;
     }
@@ -164,6 +167,8 @@
 </head>
 
 <body>
+  <a class="skip-link" href="#main-content">Skip to calculator</a>
+  <main id="main-content">
   <h2>Payroll Demo</h2>
 
   <p class="demo-note">
@@ -218,6 +223,7 @@
     Enter values and calculate pay.
   </div>
 
+  </main>
   <script>
     function formatMoney(amount) {
       return amount.toLocaleString("en-US", {
